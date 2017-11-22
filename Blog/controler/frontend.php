@@ -58,5 +58,24 @@ function addPost($title, $chapo, $content, $author)
 }
 
 
+function deletePost()
+{
+
+	$PostManager = new OpenClassrooms\Blog\Model\PostManager();
+	$post = $PostManager->removePost($_GET['id']);
+
+	if($post == false)
+	{
+
+		throw new Exception('Impossible de supprimer le post');
+	}
+	else
+	{
+		 header('Location: index.php?action=listPosts');
+	}
+
+
+}
+
 
 

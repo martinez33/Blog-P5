@@ -15,6 +15,7 @@
 		<?= nl2br(htmlspecialchars($post['chapo'])) ?>
 	    <?= nl2br(htmlspecialchars($post['content'])) ?>
 	    <?= nl2br(htmlspecialchars($post['author'])) ?>
+	    <a href="index.php?action=deletePost&amp;id=<?= $post['id'] ?>">Supprimer</a>
 	</p>
 </div>
 
