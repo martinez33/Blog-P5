@@ -23,9 +23,9 @@
 		</head>
 
 	<body>
-		<div class="container">
-			<?= $content ?>
-		</div>
+		
+		<?= $content ?>
+		
 		
 	</body>
 </html>

@@ -19,22 +19,17 @@ function listPosts()
 	}					
 }
 
+
 function post()
 {
 
     $PostManager = new OpenClassrooms\Blog\Model\PostManager();
-    $CommentManager = new OpenClassrooms\Blog\Model\CommentManager(); 
 
     $post = $PostManager->getPost($_GET['id']);
-    $comments = $CommentManager->getComments($_GET['id']);
 
     if($post === false)
 	{
 		throw new Exception('Impossible d\'afficher le post');
-	}
-	elseif($comments === false)
-	{
-		throw new Exception('Impossible d\'afficher les commmentaires');
 	}
 	else
 	{
@@ -42,56 +37,26 @@ function post()
 	}    
 }
 
-function comment()
+
+
+
+function addPost($title, $chapo, $content, $author)
 {
 	$PostManager = new OpenClassrooms\Blog\Model\PostManager();
-   	$post = $PostManager->getPost($_GET['id']);
+	$affectedLines = $PostManager->postPost($title, $chapo, $content, $author);
 
-	$CommentManager = new OpenClassrooms\Blog\Model\CommentManager();
-	$comment = $CommentManager->getComment($_GET['idCom']);
-
-	if($comment === false)
+	if($affectedLines == false)
 	{
-		throw new Exception('Impossible d\'afficher le commentaire');
+
+		throw new Exception('Impossible d\'ajouter le post');
 	}
 	else
 	{
-		require('view/frontend/commentView.php');
-	}    
+		 header('Location: index.php');
+	}
+
 }
 
 
 
-function addComment($postId, $author, $comment)
-{
-	$CommentManager = new OpenClassrooms\Blog\Model\CommentManager();
-	$affectedLines = $CommentManager->postComment($postId, $author, $comment);
 
-	if($affectedLines === false)
-	{
-		throw new Exception('Impossible d\'ajouter le commentaire');
-	}
-	else
-	{
-		 header('Location: index.php?action=post&id=' . $postId);
-	}
-}
-
-
-function modifyComment($commentId, $author, $comment)
-{
-	$PostManager = new OpenClassrooms\Blog\Model\PostManager();
-   	$post = $PostManager->getPost($_GET['id']);
-	
-	$CommentManager = new OpenClassrooms\Blog\Model\CommentManager();
-	$modifyLines = $CommentManager->updateComment($commentId, $author, $comment);
-
-	if($modifyComment === false)
-	{
-		throw new Exception('Impossible de modifier le commentaire'); 
-	}
-	else
-	{
-		header('Location: index.php?action=post&id=' . $post['id']);
-	}
-}
