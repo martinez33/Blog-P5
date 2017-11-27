@@ -2,14 +2,13 @@
     
 <?php ob_start() ?>	
 
-<h2>Mon blog</h2>
+
+<h1>Mon blog</h1>
 <br />
-<h2>Ajoutez un post : </h2>
-
-<div class="container">
-
 	<div class="col-lg-6">
-		<form action="index.php?action=addPost" method="POST" >
+		<h2>Ajoutez un post : </h2>
+	
+		<form  class="well" action="index.php?action=addPost" method="POST" >
 			<div class="form-group">
 				<legend>Création Post</legend>
 			</div>
@@ -40,7 +39,7 @@
 
 	<div class="col-lg-6">
 
-		<p>Les derniers posts : </p><br />
+		<h2>Les derniers posts : </h2><br />
 									
 		<?php
 		while($data = $posts->fetch())
@@ -50,8 +49,8 @@
 			<div class="news">
 				<h3>
 					<?= htmlspecialchars($data['title']) ?>
-					<em>    le <?= $data['creationDateFr'] ?></em>
 				</h3>
+				<p><em>    le <?= $data['creationDateFr'] ?></em></p>
 								                
 				<p>
 					<?= nl2br(htmlspecialchars($data['chapo'])) ?><br />

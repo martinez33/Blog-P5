@@ -57,6 +57,26 @@ function addPost($title, $chapo, $content, $author)
 
 }
 
+function modifyPost($title, $chapo, $content, $author)
+{
+	$PostManager = new OpenClassrooms\Blog\Model\PostManager();
+
+   	$post = $PostManager->getPost($_GET['id']);
+	
+	$modifyLines = $PostManager->updatePost($title, $chapo, $content, $author);
+	
+	if($modifyLines === false)
+	{
+		throw new Exception('Impossible de modifier le post'); 
+	}
+	else
+	{
+		header('Location: index.php?action=listPosts&id=' . $post['id']);
+	}
+}
+
+
+
 
 function deletePost()
 {
