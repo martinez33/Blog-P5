@@ -1,0 +1,21 @@
+{
+    "name": "martin/blog",
+    "description": "My blog",
+    "type": "project",
+    "authors": [
+        {
+            "name": "martinez33",
+            "email": "martinez.forestier@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    
+    "autoload": { 
+            "psr-4": {
+                "App\\": "src/",
+                "Config\\": "etc/"
+        }
+
+
+    }
+}
