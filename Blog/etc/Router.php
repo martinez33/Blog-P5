@@ -13,12 +13,15 @@ use App\Controler\PostControler;
 
 class Router {
 
+  private $url;
+  private $routes = []; // Contiendra la liste des routes
   private $ctrlHome;
   private $ctrlBlog;
   private $ctrlPost;
   
 
   public function __construct() {
+    //$this->url = $url;
     $this->ctrlHome = new HomeControler();
     $this->ctrlBlog = new BlogControler();
     $this->ctrlPost = new PostControler();
@@ -30,10 +33,7 @@ class Router {
     try
     {
       if (isset($_GET['action'])) {
-       /*$actionRecup = serialize($_GET['action']);//on serialize
-        var_dump(unserialize($actionRecup));//On deserialize et on le restitu comme avant la serialization
-        
-        die();*/
+       
         if ($_GET['action'] == 'home') {
           $this->ctrlHome->listHomePosts();
         }
@@ -53,7 +53,7 @@ class Router {
             $this->ctrlBlog->addPost();
           }
           else {
-            throw new Exception('Erreur : tous les champs ne sont pas remplis !');
+            throw new \Exception('Erreur : tous les champs ne sont pas remplis !');
           }
         }
         elseif ($_GET['action'] == 'modifPost') {
@@ -86,12 +86,64 @@ class Router {
           $this->ctrlHome->listHomePosts();
       }
     }
-    catch(Exception $e){
+    catch(\Exception $e){
 
       $errorMessage = $e->getMessage();
-      require('view/frontend/errorView.php');
+      require('src/View/frontend/errorView.php');
     }
   }
+
+
+
+//---------------------------------------------------------------------------------------
+
+/*
+  public function __construct($url){
+        $this->url = $url;
+    }
+
+
+
+  public function get($path, $callable){
+    $route = new Route($path, $callable);
+    $this->routes["GET"][] = $route;
+    return $route; // On retourne la route pour "enchainer" les méthodes
+  }
+
+  public function post($path, $callable, $name = null){
+    return $this->add($path, $callable, $name, 'POST');
+  }
+
+
+
+  private function add($path, $callable, $name, $method){
+      $route = new Route($path, $callable);
+      $this->routes[$method][] = $route;
+      if(is_string($callable) && $name === null){
+            $name = $callable;
+      }
+      if($name){
+           $this->namedRoutes[$name] = $route;
+      }
+      return $route;
+  }  
+
+
+
+
+  public function run(){
+    if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
+        throw new RouterException('REQUEST_METHOD does not exist');
+    }
+    foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
+        if($route->match($this->url)){
+            return $route->call();
+        }
+    }
+    throw new RouterException('No matching routes');
+  }*/
+
+
 
 }
 

@@ -12,15 +12,20 @@
     <title><?= $title; ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="public/startbootstrap-clean-blog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="src/public/startbootstrap-clean-blog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="public/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="src/public/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="public/startbootstrap-clean-blog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="src/public/startbootstrap-clean-blog/css/clean-blog.min.css" rel="stylesheet">
+
+
+    <script src="src/public/startbootstrap-clean-blog/js/jquery-3.2.1.js"></script>
+            <!--<script src="src/public/startbootstrap-clean-blog/js/bootstrap.min.js"></script>-->
   
   </head>
 
@@ -37,13 +42,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=home">Home</a>
+              <a class="nav-link" href="index.php?action=home">Home</a> <!--/home-->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=blog">Posts</a>
+              <a class="nav-link" href="index.php?action=blog">Posts</a> <!--/posts-->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="contact.html">Contact</a> <!--/contact-->
             </li>
           </ul>
         </div>
@@ -51,7 +56,7 @@
     </nav>
 
      <!-- Page Header -->
-    <header class="masthead" style="background-image: url('public/startbootstrap-clean-blog/img/home-bg.jpg')">
+    <header class="masthead" style="background-image: url('src/public/startbootstrap-clean-blog/img/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -65,32 +70,7 @@
       </div>
     </header>
 
-    <!--<div class="container">
-  
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle Navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php?action=home">Forestier Martin</a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li> <a href="index.php?action=home">Home</a> </li>
-              <li> <a href="index.php?action=blog">Blog</a> </li>
-              <li> <a href="#">Contact</a> </li>
-            </ul>
-                  
-          </div>
-        </div>
-      </div>   
-
-
-    </div>-->
+    
 
 
 		
@@ -117,22 +97,22 @@
         <div class="space"></div>
         <div class="row logos">
           <div class="col-lg-3 col-sm-6 ">
-            <img src="public/images/iconDev.png" alt="">
+            <img src="src/public/images/iconDev.png" alt="">
             <h4>Developpement Web</h4>
             <p>PHP</p>
           </div> 
           <div class="col-lg-3 col-sm-6 ">
-            <img src="public/images/iconWeb.png" alt="">
+            <img src="src/public/images/iconWeb.png" alt="">
             <h4>Responsive Design</h4>
             <p>Bootstrap</p>
           </div>
           <div class="col-lg-3 col-sm-6 ">
-            <img src="public/images/iconWeb.png" alt="">
+            <img src="src/public/images/iconWeb.png" alt="">
             <h4>Responsive Design</h4>
             <p>Bootstrap</p>
           </div>
           <div class="col-lg-3 col-sm-6 ">
-            <img src="public/images/iconMail.png" alt="">
+            <img src="src/public/images/iconMail.png" alt="">
             <h4>Me contacter</h4>
             <p>Via le formulaire</p>
           </div>

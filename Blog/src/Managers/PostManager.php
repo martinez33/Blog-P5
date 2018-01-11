@@ -29,10 +29,12 @@ class PostManager extends Manager
 	 }
 
 
+
+
 	public function getPosts(){
 
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 20');
+		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 10');
 		
 		 $req->execute();
 
@@ -48,6 +50,8 @@ class PostManager extends Manager
 		return $this->getEntries();	
 
 	}
+
+
 
 
 	public function getHomePosts(){
@@ -72,6 +76,9 @@ class PostManager extends Manager
 	}
 
 
+
+
+
 	public function getPostById($id){
 
 		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modificationDateFr, title, chapo, content, author  FROM post WHERE id = :id');
@@ -93,29 +100,91 @@ class PostManager extends Manager
 
 
 
+
+
+
 	public function createPost(Post $post){
 
 		//$id = (int) $id;
+		//var_dump($post->getTitle());//die();
 
-		$error = $this->validator->checkSQL($post->getTitle());
-		//var_dump($error);die();
+		try{
 
-		if ($error) {
-      		throw new Exception('Erreur : une injection SQL est détéctée !');
-    	}
-		//traitement errror SQL
+			$cleanTitle = $this->validator->checkSQL($post->getTitle($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setTitle($cleanTitle);
+			}
+
+			
+
+			$cleanChapo = $this->validator->checkSQL($post->getChapo($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setChapo($cleanChapo);
+			}
+
+
+			
+			$cleanContent = $this->validator->checkSQL($post->getContent($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setContent($cleanContent);
+			}
+
+
+
+			$cleanAuthor = $this->validator->checkSQL($post->getAuthor($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setAuthor($cleanAuthor);
+			}
+			//var_dump($error);
+			if($error){
+
+				throw new \Exception('SQL Injection detected !');			  
+			}
+			/*else{
+
+				throw new \Exception('Post created !');
+			}*/
+
+		}
+		catch(\Exception $e){
+
+	      	$errorMessage = $e->getMessage();
+	      	require('src/View/frontend/errorView.php');
+	    }
 
 
 		$req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
-
-		  $req->execute([
+		
+		var_dump($post->getTitle());
+		var_dump($post->getChapo());
+		//die();
+		$req->execute([
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
         ':content' => htmlspecialchars($post->getContent()),
         ':author' => htmlspecialchars($post->getAuthor())
       ]);
-		 var_dump($post);
+
+ 
 	}
+
+
 
 
 
@@ -123,12 +192,7 @@ class PostManager extends Manager
 
 		//$id = (int) $id;
 
-		$error = $this->validator->checkSQL($post);
-		//var_dump($error);//die();
-
-		if ($error) {
-      		throw new Exception('Erreur : une injection SQL détéctée !');
-    	}
+		
 		//traitement errror SQL
 
 

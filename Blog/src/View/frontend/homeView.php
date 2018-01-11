@@ -115,7 +115,7 @@
       
         <section class="col-lg-4" id="cv">
 
-            	<a href="#"><h3>Mon CV</h3><img src="public/images/iconCv.png" alt="" /></a>
+            	<a href="#"><h3>Mon CV</h3><img src="src/public/images/iconCv.png" alt="" /></a>
 
               
         </section>

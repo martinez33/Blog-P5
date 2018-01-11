@@ -1,6 +1,10 @@
 <?php 
 
 namespace App\Model;
+
+require 'vendor/autoload.php';
+
+use App\Managers\Validator;
 /**
 * 
 */
@@ -15,6 +19,7 @@ class Post
 	private $chapo;
 	private $content;
 	private $author;
+
 	
 	//Getters
 
@@ -37,7 +42,7 @@ class Post
 
 
 	public function getTitle(){
-
+		
 		return $this->title;
 	}
 
@@ -90,6 +95,7 @@ class Post
 
 	public function setTitle($title){
 
+		//var_dump($title);die();
 		 $this->title = $title;
 	}
 

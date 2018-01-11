@@ -28,7 +28,7 @@ class BlogControler {
 
 		if($posts === false)
 		{
-			throw new Exception('Impossible d\'afficher les posts');
+			throw new \Exception('Impossible d\'afficher les posts');
 		}
 		else
 		{
@@ -48,7 +48,7 @@ class BlogControler {
 		if($post == false)
 		{
 
-			throw new Exception('Impossible d\'ajouter le post');
+			throw new \Exception('Impossible d\'ajouter le post');
 		}
 		else
 		{

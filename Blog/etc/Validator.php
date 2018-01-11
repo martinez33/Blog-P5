@@ -10,31 +10,57 @@ class Validator {
 
 	public function checkSQL($entries){
 
+
+		$regex = '#<[\n\r\s]*script[^>]*[' .
+		' \n\r\s]*(type\s?=\s?"text/javascript")*>.*?<[\n\r\s]*/script[^>]*>#i';
+		$replace = '';
+
+		$entriesCleanJS = preg_replace($regex, $replace, $entries);
+
+		//var_dump($entries);die();
+		//var_dump($entriesCleanJS);//die();
+
 		$sql = [
 			'INSERT' => '',
 			'UPDATE' => '',
 			'DELETE' => '',
 			'OR' => '',
-			'WHERE' => '',
-			'^<.>$' => ''
+			'WHERE' => ''
 		];
 
-		$temp = strtr($entries, $sql);
+		
+		
+		$clean = strtr($entriesCleanJS, $sql);//recuperation du remplacement par  $clean
 
-		//var_dump($temp);die();
+		
+		if ($clean !== $entriesCleanJS) {
 
-		/*switch ($entries) {
-			case strtr($entries, $sql):
-				return $this->error = 'SQL injection detected !';
-				break;
+			//$this->error =  'SQL injection detected !';
+			$this->error =  true;
 			
-			default:
-				return $this->error = false;
-				break;
-		}*/
+		}
+
+		return $clean; //renvoi $clean
+
+		//var_dump($clean);//die();
+		
+		
+	
+		 
+		
+	}
+
+
+	public function getError(){
+
+		return $this->error;
 	}
 
 
 
+	public function setError($error){
+
+		$this->error = $error;
+	}
 
 }
