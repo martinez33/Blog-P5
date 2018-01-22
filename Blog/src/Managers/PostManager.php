@@ -105,8 +105,89 @@ class PostManager extends Manager
 
 	public function createPost(Post $post){
 
-		//$id = (int) $id;
-		//var_dump($post->getTitle());//die();
+		try{
+
+			$cleanTitle = $this->validator->checkSQL($post->getTitle($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setTitle($cleanTitle);
+			}
+
+			
+
+			$cleanChapo = $this->validator->checkSQL($post->getChapo($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setChapo($cleanChapo);
+			}
+
+
+			
+			$cleanContent = $this->validator->checkSQL($post->getContent($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setContent($cleanContent);
+			}
+
+
+
+			$cleanAuthor = $this->validator->checkSQL($post->getAuthor($post));
+
+			$error = $this->validator->getError();
+
+			if ($error) {
+
+				$post->setAuthor($cleanAuthor);
+			}
+			//var_dump($error);
+			if($error){
+
+				throw new \Exception('SQL Injection detected !');			  
+			}
+			else{
+
+				throw new \Exception('Post created !');
+			}
+
+		}
+		catch(\Exception $e){
+
+	      	$errorMessage = $e->getMessage();
+	      	require('src/View/frontend/errorView.php');
+	    }
+
+
+		$req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
+		
+		var_dump($post->getTitle());
+		var_dump($post->getChapo());
+		//die();
+		$req->execute([
+        ':title' => htmlspecialchars($post->getTitle()),
+        ':chapo' => htmlspecialchars($post->getChapo()),
+        ':content' => htmlspecialchars($post->getContent()),
+        ':author' => htmlspecialchars($post->getAuthor())
+      ]);
+
+ 
+	}
+
+
+
+
+
+	public function updatePost($id, Post $post){
+
+		
 
 		try{
 
@@ -156,10 +237,10 @@ class PostManager extends Manager
 
 				throw new \Exception('SQL Injection detected !');			  
 			}
-			/*else{
+			else{
 
-				throw new \Exception('Post created !');
-			}*/
+				throw new \Exception('Post modified !');
+			}
 
 		}
 		catch(\Exception $e){
@@ -167,33 +248,6 @@ class PostManager extends Manager
 	      	$errorMessage = $e->getMessage();
 	      	require('src/View/frontend/errorView.php');
 	    }
-
-
-		$req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
-		
-		var_dump($post->getTitle());
-		var_dump($post->getChapo());
-		//die();
-		$req->execute([
-        ':title' => htmlspecialchars($post->getTitle()),
-        ':chapo' => htmlspecialchars($post->getChapo()),
-        ':content' => htmlspecialchars($post->getContent()),
-        ':author' => htmlspecialchars($post->getAuthor())
-      ]);
-
- 
-	}
-
-
-
-
-
-	public function updatePost($id, Post $post){
-
-		//$id = (int) $id;
-
-		
-		//traitement errror SQL
 
 
 		$req = $this->db->prepare('UPDATE post SET modificationDate=NOW(), title=:title, chapo=:chapo, content=:content, author=:author, status="modified" WHERE id=:id');

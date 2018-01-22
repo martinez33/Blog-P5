@@ -2,7 +2,7 @@
 
 namespace App\Managers;
 
-use Config\Validator;
+use Core\Validator;
 
 
 	

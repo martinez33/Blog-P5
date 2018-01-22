@@ -23,7 +23,7 @@
 					<h4><?= $post->getChapo(); ?></h4>
 		            <p>
                   <?= $post->getExtContent(); ?>
-		              <a href="index.php?action=post&id=<?=$post->getId()?>">Voir la suite</a>
+		              <a href="/Blog-p5/blog/posts/<?=$post->getId()?>">Voir la suite</a>
                 </p>
                 
                 <hr />
@@ -76,11 +76,11 @@
           <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
           <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
           <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-          <form name="sentMessage" id="contactForm" novalidate>
+          <form methode="POST" action="" name="sentMessage" id="contactForm" novalidate>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Name</label>
-                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                <input type="text" action="name" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
                 <p class="help-block text-danger"></p>
               </div>
             </div>

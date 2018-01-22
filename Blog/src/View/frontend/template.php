@@ -12,7 +12,7 @@
     <title><?= $title; ?></title>
 
     <!-- Bootstrap core CSS -->
-    
+    <base href="/Blog-p5/blog/"> <!--base de recherche pour rewriting-->
     <link href="src/public/startbootstrap-clean-blog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -34,7 +34,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="index.php?action=home">Martin Forestier</a>
+        <a class="navbar-brand" href="/Blog-p5/blog/">Martin Forestier</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -42,13 +42,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=home">Home</a> <!--/home-->
+              <a class="nav-link" href="/Blog-p5/blog/">Home</a> <!--/home-->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=blog">Posts</a> <!--/posts-->
+              <a class="nav-link" href="/Blog-p5/blog/posts">Posts</a> <!--/posts-->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a> <!--/contact-->
+              <a class="nav-link" href="/contact">Contact</a> <!--/contact-->
             </li>
           </ul>
         </div>

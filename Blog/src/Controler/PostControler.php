@@ -21,11 +21,11 @@ class PostControler {
 
   
 
-	public function post()
+	public function __invoke($id)//post
 	{
 
-	    $post = $this->onePost->getPostById($_GET['id']);
-
+	    $post = $this->onePost->getPostById($id); //$_GET[':id']
+	    
 
 	    if($post === false)
 		{
@@ -35,26 +35,6 @@ class PostControler {
 		{
 			require('src/View/frontend/postView.php');
 		}    
-	}
-
-
-	public function modifPost()
-	{
-
-		
-		$post = $this->onePost->buildCrea($_POST);
-		
-		$updt = $this->onePost->updatePost($_GET['id'], $post);
-		//var_dump($updt);
-		if($post === false)
-		{
-			throw new Exception('Impossible de modifier le post'); 
-		}
-		else
-		{
-			header('Location: index.php?action=blog');
-			
-		}
 	}
 
 

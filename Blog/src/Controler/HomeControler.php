@@ -20,7 +20,7 @@ class HomeControler {
 
   
 
-	function listHomePosts()
+	public function __invoke()
 	{
 		$posts = $this->homePost->getHomePosts(); //appel d'une fonction de cet objet : ("$postManager")
 		if($posts === false)

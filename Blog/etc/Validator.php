@@ -1,7 +1,7 @@
 <?php 
 
 
-namespace Config;
+namespace Core;
 
 class Validator {
 
@@ -12,10 +12,10 @@ class Validator {
 
 
 		$regex = '#<[\n\r\s]*script[^>]*[' .
-		' \n\r\s]*(type\s?=\s?"text/javascript")*>.*?<[\n\r\s]*/script[^>]*>#i';
+		' \n\r\s]*(type\s?=\s?"text\/javascript")*>.*?<[\n\r\s]*\/script[^>]*>#i';
 		$replace = '';
 
-		$entriesCleanJS = preg_replace($regex, $replace, $entries);
+		//$entriesCleanJS = preg_replace($regex, $replace, $entries);
 
 		//var_dump($entries);die();
 		//var_dump($entriesCleanJS);//die();
@@ -30,23 +30,37 @@ class Validator {
 
 		
 		
-		$clean = strtr($entriesCleanJS, $sql);//recuperation du remplacement par  $clean
+		//$clean = strtr($entriesCleanJS, $sql);//recuperation du remplacement par  $clean
+		$search = preg_match($regex, $entries, $matches);
 
-		
-		if ($clean !== $entriesCleanJS) {
-
-			//$this->error =  'SQL injection detected !';
-			$this->error =  true;
-			
-		}
-
-		return $clean; //renvoi $clean
-
+		//var_dump($search);//die();
 		//var_dump($clean);//die();
 		
+		//var_dump($sql);//die();
+
 		
-	
-		 
+
+		if($search != null){
+
+			$this->error =  true;
+
+			$entriesCleanJS = preg_replace($regex, $replace, $entries);
+
+			$clean = strtr($entriesCleanJS, $sql);
+			//var_dump($clean);die();
+
+		}else{
+
+			$clean = strtr($entries, $sql);
+
+			if($clean !== $entries){
+
+				$this->error = true;
+			}
+			
+		}
+		
+		 return $clean;	 
 		
 	}
 

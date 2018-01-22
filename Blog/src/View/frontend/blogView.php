@@ -24,7 +24,7 @@
 						<?= nl2br($post->getContent()) ?>
 						<br />
 						<?= nl2br($post->getAuthor()) ?>
-						<em><a href="index.php?action=post&id=<?=$post->getId()?>"><br />Consulter</a></em>
+						<em><a href="/Blog-p5/blog/posts/<?=$post->getId()?>"><br />Consulter</a></em><!--index.php?url=post&id=<?=$post->getId()?>-->
 						<hr />
 					</p>
 				</div>
@@ -35,7 +35,7 @@
 		</div>
 		
 			<div class="col-lg-4 col-md-2 mx-auto">
-				<form  class="well" action="index.php?action=addPost" method="POST" >
+				<form  class="well" action="/Blog-p5/blog/post/add" method="POST" >
 					<div class="form-group">
 						<legend>Création d'un Post</legend>
 					</div>

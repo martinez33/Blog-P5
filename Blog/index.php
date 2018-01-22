@@ -2,27 +2,59 @@
 
 require './vendor/autoload.php';
 
-use Config\Router;
+use Core\Routers\Router;
+
+
+
+$router = new Router();
+//var_dump($_SERVER['REQUEST_URI']);
+//$router->match($_SERVER['REQUEST_URI']);
+$router->handleUrl($_SERVER['REQUEST_URI']); // www.martin.fr/posts  URI = /posts
+
+
+
+
+
+
+
+
 
 //die($_GET['url']);
 
-$routeur = new Router();
-$routeur->routerRequete();
+/*$routeur = new Router();
+$routeur->routerRequete();*/
 
 
 
 
 //-------------------------------
 
+/*$router = new Router($_GET['url']); 
 
-
-/*$ctrlHome = new App\Controler\HomeControler();
+$ctrlHome = new App\Controler\HomeControler();
 $ctrlBlog = new App\Controler\BlogControler();
+$ctrlPost = new App\Controler\PostControler();*/
 
-$router = new Router($_GET['url']); 
-$router->get('/', $ctrlHome->listHomePosts()); 
-$router->get('/home', $ctrlHome->listHomePosts()); 
-$router->get('/posts', $ctrlBlog->listPosts());*/ 
-//$router->get('/posts/:id', function($id){ echo "Voila l'article $id"; }); 
-//$router->run();*/
+//$router->get('/', function(){ echo "Homepage"; });
+//$router->get('/home', function(){ echo "Homepage"; });/*$ctrlBlog->listPosts()); */
+//$router->get('/posts', function(){ echo "Tous les posts"; });
+//$router->get('/home', $ctrlHome->ListHomePosts());/*$ctrlBlog->listPosts()); */
+//$router->get('/posts', $ctrlBlog->listPosts());/*$ctrlBlog->listPosts()); */
+/*$router->get('/posts/:id',function($id){ 
+?>
+
+	<form action="" method="post">
+		<input type="text" name="name">
+		<button type="submit">Envoyer</button>
+
+	</form>
+		
+
+
+<?php 
+ } );
+
+$router->post('/posts/:id', function($id){ echo 'Poster pour l\'article' .$id. '<pre>'.print_r($_POST, true).'<pre>'; }); 
+
+$router->run();*/
 

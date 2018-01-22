@@ -24,7 +24,7 @@
 							<br />
 							<?= nl2br($post->getAuthor()) ?>
 							<br />
-							<em><a href="index.php?action=deletePost&id=<?= $post->getId(); ?>">Supprimer</a></em>
+							<em><a href="index.php?url=deletePost&id=<?= $post->getId(); ?>">Supprimer</a></em>
 						</p>
 					</div>
 				<?php
@@ -34,7 +34,7 @@
 			</div>
 
 			<div class="col-lg-4">
-					<form  class="well" action="index.php?action=modifPost&id=<?= $post->getId(); ?>" method="POST" >
+					<form  class="well" action="/Blog-p5/blog/post/modify/<?= $post->getId(); ?>" method="POST" > <!--index.php?url=modifPost&id=-->
 						<div class="form-group">
 							<legend>Modifiez le Post : <br />
 								<p><?= $post->getTitle() ?></p></legend>

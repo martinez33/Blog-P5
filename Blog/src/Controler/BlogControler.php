@@ -21,7 +21,7 @@ class BlogControler {
 
   
 
-	public function listPosts(){
+	public function __invoke(){ //listPosts
 
 		//$PostManager = new PostManager(); //creation d'un objet
 		$posts = $this->blogPosts->getPosts(); //appel d'une fonction de cet objet : ("$postManager")
@@ -35,27 +35,5 @@ class BlogControler {
 			require("src/View/frontend/blogView.php");
 		}					
 	}
-
-
-	function addPost()
-	{
-		
-		$post = $this->blogPosts->buildCrea($_POST);
-
-		$this->blogPosts->createPost($post);
-		
-
-		if($post == false)
-		{
-
-			throw new \Exception('Impossible d\'ajouter le post');
-		}
-		else
-		{
-			 header('Location: index.php');
-		}
-
-	}
-
 
 }
