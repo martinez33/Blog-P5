@@ -3,7 +3,7 @@
 
 namespace App\Controler;
 
-require './vendor/autoload.php';
+//require './vendor/autoload.php';
 
 
 use App\Managers\PostManager;
@@ -25,6 +25,8 @@ class AddPostControler {
 	public function __invoke() //addPost
 	{
 		if(!empty($_POST['title']) && !empty($_POST['chapo']) && !empty($_POST['content']) && !empty($_POST['author'])){
+
+			//var_dump($_POST['title']);die();
 
 			$post = $this->blogPosts->buildCrea($_POST);
 

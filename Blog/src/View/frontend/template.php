@@ -12,8 +12,8 @@
     <title><?= $title; ?></title>
 
     <!-- Bootstrap core CSS -->
-    <base href="/Blog-p5/blog/"> <!--base de recherche pour rewriting-->
-    <link href="src/public/startbootstrap-clean-blog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <base href="/Blog-p5/blog/"> <!--base de recherche pour rewriting    IMPORTANT POUR POINTER SUR LE BON FICHIER !!!! -->
+    <link href="src/Public/startbootstrap-clean-blog/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="src/public/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -96,22 +96,17 @@
         </div>
         <div class="space"></div>
         <div class="row logos">
-          <div class="col-lg-3 col-sm-6 ">
+          <div class="col-lg-4 col-sm-6 ">
             <img src="src/public/images/iconDev.png" alt="">
             <h4>Developpement Web</h4>
             <p>PHP</p>
           </div> 
-          <div class="col-lg-3 col-sm-6 ">
+          <div class="col-lg-4 col-sm-6 ">
             <img src="src/public/images/iconWeb.png" alt="">
             <h4>Responsive Design</h4>
             <p>Bootstrap</p>
           </div>
-          <div class="col-lg-3 col-sm-6 ">
-            <img src="src/public/images/iconWeb.png" alt="">
-            <h4>Responsive Design</h4>
-            <p>Bootstrap</p>
-          </div>
-          <div class="col-lg-3 col-sm-6 ">
+          <div class="col-lg-4 col-sm-6 ">
             <img src="src/public/images/iconMail.png" alt="">
             <h4>Me contacter</h4>
             <p>Via le formulaire</p>

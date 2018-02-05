@@ -50,6 +50,16 @@ return [
 		'params' => [
 			':id' => '#\\d+#'
 		]
+	],
+
+	'send_mail' =>[
+
+		'path' => '/sendMail',
+		'action' => App\Controler\MailControler::class,
+		'method' => 'POST',
+		'params' => [
+			':id' => ''
+		]
 	]
 ];
 

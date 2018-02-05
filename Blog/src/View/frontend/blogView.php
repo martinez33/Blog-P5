@@ -24,7 +24,7 @@
 						<?= nl2br($post->getContent()) ?>
 						<br />
 						<?= nl2br($post->getAuthor()) ?>
-						<em><a href="/Blog-p5/blog/posts/<?=$post->getId()?>"><br />Consulter</a></em><!--index.php?url=post&id=<?=$post->getId()?>-->
+						<button type="submit" class="btn  btn-xs" style="border-radius: 10px;" ><a href="/posts/<?=$post->getId()?>">Voir la suite</a></button> 
 						<hr />
 					</p>
 				</div>

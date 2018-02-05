@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-require 'vendor/autoload.php';
+//require 'vendor/autoload.php';
 
 use App\Managers\Validator;
 /**

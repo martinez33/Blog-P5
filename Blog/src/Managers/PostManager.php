@@ -2,10 +2,8 @@
 
 namespace App\Managers;
 
-require './vendor/autoload.php';
-/*require_once("managers/Manager.php");
-require_once("managers/Validator.php");
-require_once("model/Post.php");*/
+//require './vendor/autoload.php';
+
 
 use App\Model\Post;
 use App\Managers\Manager;
@@ -34,7 +32,7 @@ class PostManager extends Manager
 	public function getPosts(){
 
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 10');
+		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 10');
 		
 		 $req->execute();
 
@@ -58,7 +56,7 @@ class PostManager extends Manager
 
 		//var_dump($this->db);
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 3');
+		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y\') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 3');
 		
 		 $req->execute();
 
@@ -81,7 +79,7 @@ class PostManager extends Manager
 
 	public function getPostById($id){
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modificationDateFr, title, chapo, content, author  FROM post WHERE id = :id');
+		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y \') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post WHERE id = :id');
 
 		$req->execute([':id' => $id]);
 
@@ -147,9 +145,6 @@ class PostManager extends Manager
 			if ($error) {
 
 				$post->setAuthor($cleanAuthor);
-			}
-			//var_dump($error);
-			if($error){
 
 				throw new \Exception('SQL Injection detected !');			  
 			}

@@ -3,7 +3,7 @@
 
 namespace App\Controler;
 
-require './vendor/autoload.php';
+//require './vendor/autoload.php';
 
 
 use App\Managers\PostManager;
