@@ -2,6 +2,8 @@
 
 namespace App\Managers;
 
+
+
 use Core\Validator;
 
 
@@ -23,7 +25,7 @@ abstract class Manager
 	{
 	    try
 	    {
-	        $this->db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+	        $this->db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'moderohihikvog4oj4');
 	    }
 	    catch(Exception $e)
 	    {

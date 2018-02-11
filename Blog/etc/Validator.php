@@ -3,6 +3,7 @@
 
 namespace Core;
 
+
 class Validator {
 
 
@@ -15,10 +16,6 @@ class Validator {
 		' \n\r\s]*(type\s?=\s?"text\/javascript")*>.*?<[\n\r\s]*\/script[^>]*>#i';
 		$replace = '';
 
-		//$entriesCleanJS = preg_replace($regex, $replace, $entries);
-
-		//var_dump($entries);die();
-		//var_dump($entriesCleanJS);//die();
 
 		$sql = [
 			'INSERT' => '',
@@ -30,16 +27,10 @@ class Validator {
 
 		
 		
-		//$clean = strtr($entriesCleanJS, $sql);//recuperation du remplacement par  $clean
+		
 		$search = preg_match($regex, $entries, $matches);
 
-		//var_dump($search);//die();
-		//var_dump($clean);//die();
 		
-		//var_dump($sql);//die();
-
-		
-
 		if($search != null){
 
 			$this->error =  true;

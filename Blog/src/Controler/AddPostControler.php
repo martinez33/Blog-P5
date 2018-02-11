@@ -3,8 +3,6 @@
 
 namespace App\Controler;
 
-//require './vendor/autoload.php';
-
 
 use App\Managers\PostManager;
 
@@ -24,29 +22,37 @@ class AddPostControler {
 
 	public function __invoke() //addPost
 	{
-		if(!empty($_POST['title']) && !empty($_POST['chapo']) && !empty($_POST['content']) && !empty($_POST['author'])){
+		try{
 
-			//var_dump($_POST['title']);die();
+			if(!empty($_POST['title']) && !empty($_POST['chapo']) && !empty($_POST['content']) && !empty($_POST['author'])){
 
-			$post = $this->blogPosts->buildCrea($_POST);
+				$post = $this->blogPosts->buildCrea($_POST);
 
-			$this->blogPosts->createPost($post);
-			
+				$this->blogPosts->createPost($post);
+				
 
-			if($post == false)
-			{
+				if($post == false)
+				{
 
-				throw new \Exception('Impossible d\'ajouter le post');
+					throw new \Exception('Impossible d\'ajouter le post');
+				}
+				else
+				{
+					 header('Location: /posts');
+				}
+
+
 			}
-			else
-			{
-				 header('Location: /Blog-p5/blog/');
+			else{
+
+				throw new \Exception('Tous les champs ne sont pas remplis !');
 			}
 		}
-		else{
+		catch(\Exception $e){
 
-			throw new \Exception('Tous les champs ne sont pas remplis !');
-		}
+	      	$errorMessage = $e->getMessage();
+	      	require('src/View/frontend/errorView.php');
+	    }
 	}
 
 

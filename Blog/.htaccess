@@ -5,6 +5,3 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
-ErrorDocument 404 src/View/frontend/error404View.php?code=404
-ErrorDocument 500 src/View/frontend/error500View.php?code=500
-

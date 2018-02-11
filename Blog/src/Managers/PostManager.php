@@ -2,7 +2,8 @@
 
 namespace App\Managers;
 
-//require './vendor/autoload.php';
+
+require './vendor/autoload.php';
 
 
 use App\Model\Post;
@@ -32,7 +33,7 @@ class PostManager extends Manager
 	public function getPosts(){
 
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 10');
+		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 4');
 		
 		 $req->execute();
 
@@ -56,7 +57,7 @@ class PostManager extends Manager
 
 		//var_dump($this->db);
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y\') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 3');
+		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 2');
 		
 		 $req->execute();
 
@@ -157,7 +158,7 @@ class PostManager extends Manager
 		catch(\Exception $e){
 
 	      	$errorMessage = $e->getMessage();
-	      	require('src/View/frontend/errorView.php');
+	      	require('src/View/frontend/successView.php');
 	    }
 
 
@@ -241,7 +242,7 @@ class PostManager extends Manager
 		catch(\Exception $e){
 
 	      	$errorMessage = $e->getMessage();
-	      	require('src/View/frontend/errorView.php');
+	      	require('src/View/frontend/successView.php');
 	    }
 
 
@@ -257,29 +258,6 @@ class PostManager extends Manager
 
 	}
 
-
-
-	public function removePost($id){
-		
-		//$id = (int) $id;
-
-
-		$error = $this->validator->checkSQL($_GET);
-		//var_dump($error);//die();
-
-		if ($error) {
-      		throw new Exception('Erreur : une injection SQL détéctée !');
-    	}
-		//traitement errror SQL
-
-
-		$req = $this->db->prepare('DELETE FROM post WHERE id = :id');
-		//var_dump((int) $id);
-		$req->execute([':id' => $id]);
-	}
-
-
-	
 
 
 	public function buildModel($data)

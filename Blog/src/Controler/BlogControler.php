@@ -3,7 +3,8 @@
 
 namespace App\Controler;
 
-//require './vendor/autoload.php';
+
+require './vendor/autoload.php';
 
 
 use App\Managers\PostManager;
@@ -21,10 +22,10 @@ class BlogControler {
 
   
 
-	public function __invoke(){ //listPosts
+	public function __invoke(){ 
 
-		//$PostManager = new PostManager(); //creation d'un objet
-		$posts = $this->blogPosts->getPosts(); //appel d'une fonction de cet objet : ("$postManager")
+		
+		$posts = $this->blogPosts->getPosts(); 
 
 		if($posts === false)
 		{

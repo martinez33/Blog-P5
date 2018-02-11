@@ -3,7 +3,9 @@
 
 namespace App\Controler;
 
-//require './vendor/autoload.php';
+
+
+require './vendor/autoload.php';
 
 use App\Managers\PostManager;
 
@@ -37,28 +39,6 @@ class PostControler {
 		}    
 	}
 
-
-
-
-	public function deletePost()
-	{
-
-		
-		$post = $this->onePost->removePost($_GET['id']);
-	
-
-		if($post === false)
-		{
-
-			throw new Exception('Impossible de supprimer le post');
-		}
-		else
-		{
-			 header('Location: index.php?action=home');
-		}
-		
-
-	}
 
 
 }

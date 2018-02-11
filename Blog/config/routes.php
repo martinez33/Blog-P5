@@ -2,7 +2,6 @@
 
 namespace Config;
 
-
 return [ 
     'homepage' => [
     	'path' => '/',
@@ -16,7 +15,7 @@ return [
 	'posts' => [
 		'path' => '/posts',
 		'action' => App\Controler\BlogControler::class,
-		'method' => 'GET',
+		'method' => '',
 		'params' => [
 			':id' => ''
 		]
@@ -49,6 +48,15 @@ return [
 		'method' => 'POST',
 		'params' => [
 			':id' => '#\\d+#'
+		]
+	],
+	'contact' =>[
+
+		'path' => '/contact',
+		'action' => App\Controler\ContactControler::class,
+		'method' => 'POST',
+		'params' => [
+			':id' => ''
 		]
 	],
 
