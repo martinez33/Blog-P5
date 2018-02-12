@@ -1,0 +1,26 @@
+{
+    "name": "root/blog",
+    "description": "projet5",
+    "authors": [
+        {
+            "name": "martin",
+            "email": "martinez.forestier@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    
+
+    "autoload": {
+
+	    "psr-4": {
+
+		"App\\": "src/",
+		"Core\\": "etc/",
+		"Config\\": "config/" 		
+		
+		}
+	},
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    }
+}
