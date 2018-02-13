@@ -25,7 +25,7 @@ abstract class Manager
 	{
 	    try
 	    {
-	        $this->db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'moderohihikvog4oj4');
+	        $this->db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
 	    }
 	    catch(Exception $e)
 	    {
