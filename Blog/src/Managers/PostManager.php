@@ -3,9 +3,6 @@
 namespace App\Managers;
 
 
-require './vendor/autoload.php';
-
-
 use App\Model\Post;
 use App\Managers\Manager;
 use App\Managers\Validator;
@@ -148,8 +145,7 @@ class PostManager extends Manager
 				$post->setAuthor($cleanAuthor);
 
 				throw new \Exception('SQL Injection detected !');			  
-			}
-			else{
+			} else {
 
 				throw new \Exception('Post created !');
 			}
@@ -164,7 +160,7 @@ class PostManager extends Manager
 
 		$req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
 		
-		
+
 		$req->execute([
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
@@ -172,18 +168,13 @@ class PostManager extends Manager
         ':author' => htmlspecialchars($post->getAuthor())
       ]);
 
- 
 	}
 
-
-
-
-
-	public function updatePost($id, Post $post){
+	public function updatePost($id, Post $post)
+	{
 
 		
-
-		try{
+		try {
 
 			$cleanTitle = $this->validator->checkSQL($post->getTitle($post));
 

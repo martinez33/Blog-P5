@@ -12,7 +12,9 @@ abstract class Manager
 {
 
 	protected $db;
+
 	private $tabDb;
+	
 
 	public function __construct(){
 
@@ -30,9 +32,8 @@ abstract class Manager
 	    try {
 	    	$this->loadCredentials();
 	        $this->db = new \PDO('mysql:host='.$this->tabDb['host'].';dbname='.$this->tabDb['dbName'].';charset=utf8', $this->tabDb['username'], $this->tabDb['psswd']);
-	    }
-	    catch(Exception $e)
-	    {
+
+	    } catch(Exception $e) {
 	        die('Erreur : '.$e->getMessage());
 	    }
 	}

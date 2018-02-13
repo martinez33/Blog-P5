@@ -46,12 +46,11 @@ class Router {
     }
 
      
-    if(preg_match('#(\/([\w:\/]*))#', $url, $matches)){
+    if(preg_match('#(\/([\w:\/]*))#', $url, $matches)) {
 
         return $matches[0];
 
       }
-      
       
   }
 
