@@ -1,0 +1,8 @@
+<?php 
+
+return [
+	"host" => "test",
+	"username" => "test",
+	"psswd" => "test",
+	"dbName" => "test"
+];

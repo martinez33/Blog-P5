@@ -12,6 +12,8 @@ abstract class Manager
 {
 
 	protected $db;
+
+	private $tabDb;
 	
 
 	public function __construct(){
@@ -20,15 +22,18 @@ abstract class Manager
 		 $this->validator = new Validator();
 	}
 
+	public function loadCredentials()
+	{
+		$this->tabDb = 	require __DIR__.'./../../config/database.php';
+	}
 
 	public function getPdo()
 	{
-	    try
-	    {
-	        $this->db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'moderohihikvog4oj4');
-	    }
-	    catch(Exception $e)
-	    {
+	    try {
+	    	$this->loadCredentials();
+	        $this->db = new \PDO('mysql:host='.$this->tabDb['host'].';dbname='.$this->tabDb['dbName'].';charset=utf8', $this->tabDb['username'], $this->tabDb['psswd']);
+
+	    } catch(Exception $e) {
 	        die('Erreur : '.$e->getMessage());
 	    }
 	}

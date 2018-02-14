@@ -3,9 +3,6 @@
 namespace App\Managers;
 
 
-require './vendor/autoload.php';
-
-
 use App\Model\Post;
 use App\Managers\Manager;
 use App\Managers\Validator;

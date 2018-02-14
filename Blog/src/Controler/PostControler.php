@@ -4,9 +4,6 @@
 namespace App\Controler;
 
 
-
-require './vendor/autoload.php';
-
 use App\Managers\PostManager;
 
 

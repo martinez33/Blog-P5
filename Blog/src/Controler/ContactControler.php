@@ -4,8 +4,6 @@
 namespace App\Controler;
 
 
-require './vendor/autoload.php';
-
 
 class ContactControler {
 

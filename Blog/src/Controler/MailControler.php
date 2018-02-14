@@ -2,13 +2,11 @@
 
 
 namespace App\Controler;
-ini_set('display_errors', 'on');
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
-require './vendor/autoload.php';
 
 class MailControler {
 
@@ -31,9 +29,9 @@ class MailControler {
 							$lastName = $_POST['lastName'];
 							$emailAdress = $_POST['email'];
 							$message = $_POST['message'];
-						 //echo (extension_loaded('openssl')?'SSL loaded':'SSL not loaded')."\n"; 	
+						  	
 							$mail = new PHPMailer();
-						//	var_dump($mail);
+						
 							$mail->IsSMTP();
 							$mail->SMTPDebug = 0;
 							$mail->SMTPAuth = true;

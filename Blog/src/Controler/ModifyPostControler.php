@@ -4,8 +4,6 @@
 namespace App\Controler;
 
 
-require './vendor/autoload.php';
-
 use App\Managers\PostManager;
 
 
@@ -30,8 +28,8 @@ class ModifyPostControler {
 		
 				$post = $this->onePost->buildCrea($_POST);
 				
-				$updt = $this->onePost->updatePost($id, $post); //$_GET['id']
-				//var_dump($updt);
+				$updt = $this->onePost->updatePost($id, $post); 
+				
 				if($post === false)
 				{
 					throw new Exception('Impossible de modifier le post'); 
