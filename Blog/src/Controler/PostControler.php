@@ -32,7 +32,7 @@ class PostControler {
 		}
 		else
 		{
-			require('src/View/frontend/postView.php');
+			require('../src/View/frontend/postView.php');
 		}    
 	}
 

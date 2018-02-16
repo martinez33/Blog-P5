@@ -13,18 +13,18 @@
 
     <!-- Bootstrap core CSS -->
     <base href="/"--> <!--base de recherche pour rewriting-->
-    <link href="../../../public/startbootstrap-clean-blog/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="startbootstrap-clean-blog/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="../../../public/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="../../../public/startbootstrap-clean-blog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="startbootstrap-clean-blog/css/clean-blog.min.css" rel="stylesheet">
 
-    <script src="../../../public/startbootstrap-clean-blog/js/jquery-3.2.1.js"></script>
-            <script src="../../../public/startbootstrap-clean-blog/js/bootstrap.min.js"></script>
+    <script src="startbootstrap-clean-blog/js/jquery-3.2.1.js"></script>
+            <script src="startbootstrap-clean-blog/js/bootstrap.min.js"></script>
 
   
   </head>
@@ -56,7 +56,7 @@
     </nav>
 
      <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../../../public/startbootstrap-clean-blog/img/home-bg.jpg')">
+    <header class="masthead" style="background-image: url('startbootstrap-clean-blog/img/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -97,17 +97,17 @@
         <div class="space"></div>
         <div class="row logos">
           <div class="col-lg-4 col-sm-6 ">
-            <img src="../../../public/images/iconDev.png" alt="">
+            <img src="images/iconDev.png" alt="">
             <h4>Développement Web</h4>
             <p>PHP, CSS/HTML, SQL, C</p>
           </div> 
           <div class="col-lg-4 col-sm-6 ">
-            <img src="../../../public/images/iconWeb.png" alt="">
+            <img src="images/iconWeb.png" alt="">
             <h4>Responsive Design</h4>
             <p>Bootstrap</p>
           </div>
           <div class="col-lg-4 col-sm-6 ">
-            <a href="/contact"><img src="../../../public/images/iconMail.png" alt=""></a>
+            <a href="/contact"><img src="images/iconMail.png" alt=""></a>
             <a href="/contact"><h4>Me contacter</h4></a>
             <a href="/contact"><p>Via le formulaire</p></a>
           </div>

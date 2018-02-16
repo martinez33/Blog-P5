@@ -29,7 +29,7 @@ class HomeControler {
 		}
 		else
 		{
-			require("src/View/frontend/homeView.php");
+			require("../src/View/frontend/homeView.php");
 		}					
 	}
 

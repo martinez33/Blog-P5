@@ -62,7 +62,7 @@ class MailControler {
 					catch(\Exception $e){
 
 					    $errorMessage = $e->getMessage();
-					    require('src/View/frontend/successView.php');
+					    require('../src/View/frontend/successView.php');
 					}
 				}
 				else{
@@ -77,7 +77,7 @@ class MailControler {
 		catch(\Exception $e){
 
 	      	$errorMessage = $e->getMessage();
-	      	require('src/View/frontend/errorView.php');
+	      	require('../src/View/frontend/errorView.php');
 		}
 	}
 

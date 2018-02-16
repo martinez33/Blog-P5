@@ -48,7 +48,7 @@ class ModifyPostControler {
 		catch(\Exception $e){
 
 	      	$errorMessage = $e->getMessage();
-	      	require('src/View/frontend/errorView.php');
+	      	require('../src/View/frontend/errorView.php');
 	    }
 	}
 

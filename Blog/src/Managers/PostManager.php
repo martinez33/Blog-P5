@@ -155,15 +155,12 @@ class PostManager extends Manager
 		catch(\Exception $e){
 
 	      	$errorMessage = $e->getMessage();
-	      	require('src/View/frontend/successView.php');
+	      	require('../src/View/frontend/successView.php');
 	    }
 
 
 		$req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
 		
-		var_dump($post->getTitle());
-		var_dump($post->getChapo());
-		//die();
 		$req->execute([
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
@@ -239,7 +236,7 @@ class PostManager extends Manager
 		catch(\Exception $e){
 
 	      	$errorMessage = $e->getMessage();
-	      	require('src/View/frontend/successView.php');
+	      	require('../src/View/frontend/successView.php');
 	    }
 
 
@@ -261,48 +258,14 @@ class PostManager extends Manager
 	{
 	    $post = new Post();
 
-	    $post->setId($data['id']);
-	    $post->setCreationDate($data['creationDateFr']);
-	    $post->setModificationDate($data['modificationDateFr']);
-	    $post->setTitle($data['title']);
-	    $post->setChapo($data['chapo']);
-	    $post->setContent($data['content']);
-	    $post->setAuthor($data['author']);
-	    
+	    $post->hydrate($data); 
 
 	    return $post;
 	 }
 
 
 
-	 public function buildCrea($data)
-	{
-	    $post = new Post();
-
-	    $post->setTitle($data['title']);
-	    $post->setChapo($data['chapo']);
-	    $post->setContent($data['content']);
-	    $post->setAuthor($data['author']);
-	    
-
-	    return $post;
-	 }
-
-	public function buildExtrait($data)
-	{
-	    $post = new Post();
-
-	    $post->setId($data['id']);
-	    $post->setCreationDate($data['creationDateFr']);
-	    $post->setModificationDate($data['modificationDateFr']);
-	    $post->setTitle($data['title']);
-	    $post->setChapo($data['chapo']);
-	    $post->setContent($data['content']);
-	    $post->setAuthor($data['author']);
-	    
-
-	    return $post;
-	 }
+	
 
 	
 }

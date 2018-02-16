@@ -14,11 +14,11 @@
           <div class="row" >
               <div class="col-lg-7 col-md-10 mx-auto" >
                   <a href="#" class="thumbnail">
-                    <img src="../../../public/images/photoMartin.jpg" alt="Moi" class="img-rounded" style="margin : 25px 5px 25px 5px;">
+                    <img src="images/photoMartin.jpg" alt="Moi" class="img-rounded" style="margin : 25px 5px 25px 5px;">
                   </a>
               </div>
               <div class="col-lg-5" >
-                  <p style="margin : 25px 20px 80px -25px; padding: 10px 5px 5px 10px ; background-image: url('../../../public/images/fond.png');">Ce blog (Projet de parcours) met en avant les différentes connaissances acquisent depuis le début de ma formation , en vue d'une prise de contact avec un employeur. <br>Ce blog represente donc le resultat final de ce projet .</p>
+                  <p style="margin : 25px 20px 80px -25px; padding: 10px 5px 5px 10px ; background-image: url('images/fond.png');">Ce blog (Projet de parcours) met en avant les différentes connaissances acquisent depuis le début de ma formation , en vue d'une prise de contact avec un employeur. <br>Ce blog represente donc le resultat final de ce projet .</p>
               </div>
             </div>
 
@@ -65,7 +65,7 @@
             	</ol>
          	</div>
           <div class="sidebar-module">
-            <a href="../../../public/Forestier_martin.pdf"><img src="../../../public/images/logoCv.png" alt="" style="margin-left: -40px" /></a>
+            <a href="Forestier_martin.pdf"><img src="images/logoCv.png" alt="" style="margin-left: -40px" /></a>
           </div>
         </div><!-- /.blog-sidebar -->
 

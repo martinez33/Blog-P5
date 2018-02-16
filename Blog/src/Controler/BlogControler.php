@@ -31,7 +31,7 @@ class BlogControler {
 		}
 		else
 		{
-			require("src/View/frontend/blogView.php");
+			require("../src/View/frontend/blogView.php");
 		}					
 	}
 

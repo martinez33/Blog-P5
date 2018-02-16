@@ -14,7 +14,7 @@ class ContactControler {
 
 		
 
-		require("src/View/frontend/contactView.php");
+		require("../src/View/frontend/contactView.php");
 					
 	}
 

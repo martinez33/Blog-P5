@@ -111,7 +111,7 @@ class Router {
     catch(\Exception $e){
 
       $errorMessage = $e->getMessage();
-      require('src/View/frontend/error404-500View.php');
+      require('../src/View/frontend/error404-500View.php');
     }
   }
 

@@ -19,6 +19,20 @@ class Post
 	private $content;
 	private $author;
 
+
+	
+	public function hydrate(array $data)
+  	{
+    	foreach ($data as $key => $value)
+    	{
+      		$method = 'set'.ucfirst($key);
+      
+      		if (method_exists($this, $method))
+      		{
+        		$this->$method($value);
+      		}
+    	}
+    }
 	
 	//Getters
 
@@ -80,13 +94,13 @@ class Post
 	}
 
 
-	public function setCreationDate($creationDate){
+	public function setCreationDateFr($creationDate){
 
 		 $this->creationDate = $creationDate;
 	}
 
 
-	public function setModificationDate($modificationDate){
+	public function setModificationDateFr($modificationDate){
 
 		 $this->modificationDate = $modificationDate;
 	}
