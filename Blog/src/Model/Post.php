@@ -4,12 +4,10 @@ namespace App\Model;
 
 
 use App\Managers\Validator;
-/**
-* 
-*/
+
+
 class Post 
 {
-	
 	
 	private $id;
 	private $creationDate;
@@ -19,119 +17,125 @@ class Post
 	private $content;
 	private $author;
 
-
 	
 	public function hydrate(array $data)
   	{
-    	foreach ($data as $key => $value)
-    	{
+    	foreach ($data as $key => $value) {
+
       		$method = 'set'.ucfirst($key);
       
-      		if (method_exists($this, $method))
-      		{
+      		if (method_exists($this, $method)) {
+
         		$this->$method($value);
+
       		}
+
     	}
+
     }
 	
-	//Getters
-
-	public function getId(){
+	public function getId()
+	{
 
 		return $this->id;
+
 	}
 
-
-	public function getCreationDate(){
+	public function getCreationDate()
+	{
 
 		return $this->creationDate;
+
 	}
 
-
-	public function getModificationDate(){
+	public function getModificationDate()
+	{
 
 		return $this->modificationDate;
+
 	}
 
-
-	public function getTitle(){
+	public function getTitle()
+	{
 		
 		return $this->title;
+
 	}
 
-
-	public function getChapo(){
+	public function getChapo()
+	{
 
 		return $this->chapo;
+
 	}
 
-
-	public function getContent(){
+	public function getContent()
+	{
 
 		return $this->content;
+
 	}
 
-
-	public function getAuthor(){
+	public function getAuthor()
+	{
 
 		return $this->author;
+
 	}
 
 	public function getExtContent(){
 
-	return '<p>' . substr($this->content, 0, 150) . '...</p>';
-
+	    return '<p>' . substr($this->content, 0, 150) . '...</p>';
 
 	}
 
-	
-	//Setters
-
-
-	public function setId($id){
+	public function setId($id)
+	{
 
 		 $this->id = $id;
+
 	}
 
-
-	public function setCreationDateFr($creationDate){
+	public function setCreationDateFr($creationDate)
+	{
 
 		 $this->creationDate = $creationDate;
+
 	}
 
-
-	public function setModificationDateFr($modificationDate){
+	public function setModificationDateFr($modificationDate)
+	{
 
 		 $this->modificationDate = $modificationDate;
+
 	}
 
+	public function setTitle($title)
+	{
 
-	public function setTitle($title){
-
-		//var_dump($title);die();
 		 $this->title = $title;
+
 	}
 
-
-	public function setChapo($chapo){
+	public function setChapo($chapo)
+	{
 
 		 $this->chapo = $chapo;
+
 	}
 
-
-	public function setContent($content){
+	public function setContent($content)
+	{
 
 		 $this->content = $content;
+
 	}
 
-
-	public function setAuthor($author){
+	public function setAuthor($author)
+	{
 
 		 $this->author = $author;
+
 	}
 	
-
-
-
-
 }

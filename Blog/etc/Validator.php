@@ -1,18 +1,18 @@
 <?php 
 
-
 namespace Core;
 
 
 class Validator {
 
-
 	private $error ;
 
-	public function checkSQL($entries){
+
+	public function checkSQL($entries)
+	{
 
 
-		$regex = '#<[\n\r\s]*script[^>]*[' .
+	    $regex = '#<[\n\r\s]*script[^>]*[' .
 		' \n\r\s]*(type\s?=\s?"text\/javascript")*>.*?<[\n\r\s]*\/script[^>]*>#i';
 		$replace = '';
 
@@ -25,47 +25,44 @@ class Validator {
 			'WHERE' => ''
 		];
 
-		
-		
-		
 		$search = preg_match($regex, $entries, $matches);
 
-		
-		if($search != null){
+		if($search != null) {
 
 			$this->error =  true;
 
 			$entriesCleanJS = preg_replace($regex, $replace, $entries);
 
 			$clean = strtr($entriesCleanJS, $sql);
-			//var_dump($clean);die();
+			
+		} else {
 
-		}else{
+		    $clean = strtr($entries, $sql);
 
-			$clean = strtr($entries, $sql);
-
-			if($clean !== $entries){
+			if($clean !== $entries) {
 
 				$this->error = true;
+
 			}
 			
 		}
 		
-		 return $clean;	 
+		return $clean;	 
 		
 	}
 
-
-	public function getError(){
+	public function getError()
+	{
 
 		return $this->error;
+
 	}
 
-
-
-	public function setError($error){
+	public function setError($error)
+	{
 
 		$this->error = $error;
+
 	}
 
 }
