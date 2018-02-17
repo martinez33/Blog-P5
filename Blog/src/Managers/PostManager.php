@@ -199,7 +199,8 @@ class PostManager extends Manager
 			
 			if($error) {
 
-				throw new \Exception('SQL Injection detected !');			  
+				throw new \Exception('SQL Injection detected !');		
+					  
 			} else {
 
 				throw new \Exception('Post modified !');
