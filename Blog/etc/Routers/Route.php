@@ -3,8 +3,8 @@
 namespace Core\Routers;
 
 
-
-class Route {
+class Route 
+{
 
     private $path;
     private $action;
@@ -13,76 +13,88 @@ class Route {
     private $controler;
 
 
-    public function __construct($path, $action, $params=null, $method = 'GET'){
+    public function __construct($path, $action, $params=null, $method = 'GET')
+    {
 
         $this->path = $path;
         $this->action = $action;
         $this->method = $method;        
         $this->params = $params;
-     
+
     }
 
-	public function getPath(){
+	public function getPath()
+    {
 
 	    return $this->path;
+
 	}
 
-	public function getAction(){
+	public function getAction()
+    {
 
 	   	return $this->action;
+
 	}
 
-	public function getParams(){
+	public function getParams()
+    {
 
 	    return $this->params[':id'];
+
 	}
 
-    public function getControler(){
+    public function getControler()
+    {
 
     	return $this->controler;
+
     }
 
-
-    public function getMethod(){
+    public function getMethod()
+    {
 
     	return $this->method;
+
     }
    
-
-
-
-
-
-	public function setPath($path){
+	public function setPath($path)
+    {
 
 	    $this->path = $path;
+
 	}
 
-	public function setAction($action){
+	public function setAction($action)
+    {
 
 	    $this->action = $action;
+
 	}
 
-	public function setParams($params){
+	public function setParams($params)
+    {
 
 	    $this->params[':id'] = $params;
+
 	}
 
-    public function setControler($controler){
+    public function setControler($controler)
+    {
 
     	$regex = '#Config#';
     	$replace = '';
 
     	$controler = preg_replace($regex, $replace, $controler);
     	$this->controler = new $controler();
+
     }
 
-    public function setMethod($method){
+    public function setMethod($method)
+    {
 
     	$this->method = $method;
+
     }
-
-    
-
 
 }
