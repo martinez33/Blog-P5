@@ -6,3 +6,4 @@ return [
 	"psswd" => "test",
 	"dbName" => "test"
 ];
+

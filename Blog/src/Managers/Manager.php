@@ -38,7 +38,6 @@ abstract class Manager
 
 	        $this->db = new \PDO('mysql:host='.$this->tabDb['host'].';dbname='.$this->tabDb['dbName'].';charset=utf8', $this->tabDb['username'], $this->tabDb['psswd']);
 
-
 	    } catch(Exception $e) {
 
 	        die('Erreur : '.$e->getMessage());

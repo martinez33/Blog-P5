@@ -41,16 +41,11 @@ class Router
         
         }
 
-     
         if(preg_match('#(\/([\w:\/]*))#', $url, $matches)) {
 
             return $matches[0];
 
-      } else {
-
-        echo "L' url n'a pas matcher !";
-
-      }
+      } 
       
     }
 

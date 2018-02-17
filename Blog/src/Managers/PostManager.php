@@ -121,7 +121,7 @@ class PostManager extends Manager
 
 				$post->setAuthor($cleanAuthor);
 
-				throw new \Exception('SQL Injection detected !');
+				throw new \Exception('SQL Injection detected !');			  
 
 			} else {
 
@@ -147,10 +147,6 @@ class PostManager extends Manager
       ]);
 
 	}
-
-
-
-
 
 	public function updatePost($id, Post $post)
 	{
