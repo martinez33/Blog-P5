@@ -9,10 +9,15 @@ use PHPMailer\PHPMailer\Exception;
 
 class MailControler 
 {
-    
+
+	private $idTab;
+
+
     public function __invoke() //sendMail
 	{
-	
+		
+		$this->idTab = 	require __DIR__.'./../../config/mailId.php';
+		
         try {
 
 			$val = filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);
@@ -38,8 +43,8 @@ class MailControler
 						$mail->Host ='smtp.gmail.com';
 						
 						$mail->Port ='587';
-						$mail->Username = 'martinez.forestier@gmail.com';
-						$mail->Password = 'moderohihikvog4oj4';
+						$mail->Username = $this->idTab['username'];
+						$mail->Password = $this->idTab['psswd'];
 						
 
 							
