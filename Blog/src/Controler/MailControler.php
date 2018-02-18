@@ -50,7 +50,7 @@ class MailControler
 							
 
 						$mail->setFrom($emailAdress, $name);
-						$mail->addAddress('martinez.forestier@gmail.com', 'Martin');
+						$mail->addAddress('martinforestier.contact@gmail.com', 'Martin');
 						$mail->Subject  = 'Prise de contact depuis le blog';
 						$mail->Body     = 'Message envoyé par : ' .$emailAdress. ' Contenu : '. $message;
 
