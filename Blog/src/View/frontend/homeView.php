@@ -22,7 +22,7 @@
 
                 <div class="col-lg-5 col-md-12 mx-auto" >
 
-                    <p style="margin : 25px 10px 40px -25px; padding: 10px 5px 5px 10px ; background-image: url('images/fond.png');">Ce blog (Projet de parcours) met en avant les différentes connaissances acquises depuis le début de ma formation , en vue d'une prise de contact avec un employeur. <br>Ce blog représente donc le resultat final de ce projet .</p>
+                    <p style="margin : 25px 10px 40px -25px; padding: 10px 5px 5px 10px ; background-image: url('images/fond.png');">Ce blog (Projet de parcours) met en avant les différentes connaissances acquises depuis le début de ma formation , en vue d'une prise de contact avec un employeur. <br>Ce blog représente donc le résultat final de ce projet .</p>
 
                 </div>
 
@@ -79,7 +79,7 @@
           	<div class="sidebar-module sidebar-module-inset">
 
                 <h4>À propos de moi</h4>
-            	  <p>Bienvenue sur mon blog. Je m'appel Martin Forestier et je suis étudiant chez <a href="https://openclassrooms.com/">OpenClassRooms</a>. Je suis le parcours : <em>Développeur d'application PHP/Symfony</em>.</p>
+            	  <p>Bienvenue sur mon blog. Je m'appelle Martin Forestier et je suis étudiant chez <a href="https://openclassrooms.com/">OpenClassRooms</a>. Je suis le parcours : <em>Développeur d'application PHP/Symfony</em>.</p>
 
           	</div>
           	
@@ -186,9 +186,9 @@
       
                 <section class="col-lg-4 col-md-10 mx-auto" id="">
 
-            	      <p >Ce blog vous propose de consulter, créer et modifier un ou plusieurs posts, de preférence en rapport avec le développement.<br>
+            	      <p >Ce blog vous propose de consulter, créer et modifier un ou plusieurs posts, de préférence en rapport avec le développement.<br>
                     En tant qu'administrateur, je me réserve le droit de supprimer tous posts tendancieux et/ou hors de propos.<br>
-                    Vous pouvez si vous le souhaitez, me consulter via le formulaire de contact, afin d'obtenir de plus amples informations sur moi.<br>
+                    Vous pouvez si vous le souhaitez, me contacter via le formulaire de contact, afin d'obtenir de plus amples informations sur moi.<br>
                     Je développe actuellement le projet suivant qui intègrera plus de fonctionnalités comme "l'authentification des utilisateurs". Ce dernier sera développé en PHP/Symfony.<br>Bonne visite à tous! </p>
               
                 </section>

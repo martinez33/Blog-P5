@@ -18,10 +18,7 @@ class AddPostControler
         $this->blogPosts = new PostManager();
     
   	}
-
-  
-
-
+ 
 	public function __invoke() 
 	{
 		
