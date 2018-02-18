@@ -22,7 +22,7 @@
 
                 <div class="col-lg-5 col-md-12 mx-auto" >
 
-                    <p style="margin : 25px 10px 40px -25px; padding: 10px 5px 5px 10px ; background-image: url('images/fond.png');">Ce blog (Projet de parcours) met en avant les différentes connaissances acquisent depuis le début de ma formation , en vue d'une prise de contact avec un employeur. <br>Ce blog represente donc le resultat final de ce projet .</p>
+                    <p style="margin : 25px 10px 40px -25px; padding: 10px 5px 5px 10px ; background-image: url('images/fond.png');">Ce blog (Projet de parcours) met en avant les différentes connaissances acquises depuis le début de ma formation , en vue d'une prise de contact avec un employeur. <br>Ce blog représente donc le resultat final de ce projet .</p>
 
                 </div>
 
@@ -79,7 +79,7 @@
           	<div class="sidebar-module sidebar-module-inset">
 
                 <h4>À propos de moi</h4>
-            	  <p>Bienvenue sur mon blog. Je m'appellle Martin Forestier et je suis étudiant chez <a href="https://openclassrooms.com/">OpenClassRooms</a>. Je suis le parcours : <em>Développeur d'application PHP/Symfony</em>.</p>
+            	  <p>Bienvenue sur mon blog. Je m'appel Martin Forestier et je suis étudiant chez <a href="https://openclassrooms.com/">OpenClassRooms</a>. Je suis le parcours : <em>Développeur d'application PHP/Symfony</em>.</p>
 
           	</div>
           	
@@ -89,7 +89,7 @@
 
             	<ol class="list-unstyled">
 
-              		<li><a href="https://github.com/martinez33">GitHub</a></li>
+              		<li><a href="https://github.com/martinez33/Blog-P5">GitHub</a></li>
               		<li><a href="#">Twitter</a></li>
                     <li><a href="#">Facebook</a></li>
               		<li><a href="https://www.linkedin.com/in/martin-forestier-136173140/">LinkedIn</a></li>
