@@ -1,74 +1,71 @@
 <?php 
 namespace Config;
 
-return [ 
+return [
     'homepage' => [
-    	'path' => '/',
-    	'action' => App\Controler\HomeControler::class,
-    	'method' => '',
-    	'params' => [
-			':id' => ''
-		]
-	],
+        'path' => '/',
+        'action' => App\Controler\HomeControler::class,
+        'method' => '',
+        'params' => [
+            ':id' => ''
+        ]
+    ],
 
-	'posts' => [
-		'path' => '/posts',
-		'action' => App\Controler\BlogControler::class,
-		'method' => '',
-		'params' => [
-			':id' => ''
-		]
-	],
+    'posts' => [
+        'path' => '/posts',
+        'action' => App\Controler\BlogControler::class,
+        'method' => '',
+        'params' => [
+            ':id' => ''
+        ]
+    ],
 
-	'posts_details' => [
-		'path' => '/posts/:id',
-		'action' => App\Controler\PostControler::class,
-		'method' => '',
-		'params' => [
-			':id' => '#\\d+#'
-		]
+    'posts_details' => [
+        'path' => '/posts/:id',
+        'action' => App\Controler\PostControler::class,
+        'method' => '',
+        'params' => [
+            ':id' => '#\\d+#'
+        ]
 
-	],
+    ],
 
-	'post_add' =>[
+    'post_add' =>[
 
-		'path' => '/post/add',
-		'action' => App\Controler\AddPostControler::class,
-		'method' => 'POST',
-		'params' => [
-			':id' => ''
-		]
-	],
+        'path' => '/post/add',
+        'action' => App\Controler\AddPostControler::class,
+        'method' => 'POST',
+        'params' => [
+            ':id' => ''
+        ]
+    ],
 
-	'post_Modify' =>[
+    'post_Modify' =>[
 
-		'path' => '/post/modify/:id',
-		'action' => App\Controler\ModifyPostControler::class,
-		'method' => 'POST',
-		'params' => [
-			':id' => '#\\d+#'
-		]
-	],
-	'contact' =>[
+        'path' => '/post/modify/:id',
+        'action' => App\Controler\ModifyPostControler::class,
+        'method' => 'POST',
+        'params' => [
+            ':id' => '#\\d+#'
+        ]
+    ],
+    'contact' =>[
 
-		'path' => '/contact',
-		'action' => App\Controler\ContactControler::class,
-		'method' => 'POST',
-		'params' => [
-			':id' => ''
-		]
-	],
+        'path' => '/contact',
+        'action' => App\Controler\ContactControler::class,
+        'method' => 'POST',
+        'params' => [
+            ':id' => ''
+        ]
+    ],
 
-	'send_mail' =>[
+    'send_mail' =>[
 
-		'path' => '/sendMail',
-		'action' => App\Controler\MailControler::class,
-		'method' => 'POST',
-		'params' => [
-			':id' => ''
-		]
-	]
+        'path' => '/sendMail',
+        'action' => App\Controler\MailControler::class,
+        'method' => 'POST',
+        'params' => [
+            ':id' => ''
+        ]
+    ]
 ];
-
-
-

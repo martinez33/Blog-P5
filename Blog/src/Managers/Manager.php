@@ -1,48 +1,34 @@
 <?php
 namespace App\Managers;
 
-
 use Core\Validator;
 
-	
-abstract class Manager 
+abstract class Manager
 {
+    protected $db;
+    private $tabDb;
+    
 
-	protected $db;
-	private $tabDb;
-	
+    public function __construct()
+    {
+        $this->getPdo();
 
-	public function __construct()
-	{
+        $this->validator = new Validator();
+    }
 
-		$this->getPdo();
+    public function loadCredentials()
+    {
+        $this->tabDb = 	require __DIR__.'./../../config/database.php';
+    }
 
-		$this->validator = new Validator();
+    public function getPdo()
+    {
+        try {
+            $this->loadCredentials();
 
-	}
-
-	public function loadCredentials()
-	{
-
-		$this->tabDb = 	require __DIR__.'./../../config/database.php';
-
-	}
-
-	public function getPdo()
-	{
-
-	    try {
-
-	    	$this->loadCredentials();
-
-	        $this->db = new \PDO('mysql:host='.$this->tabDb['host'].';dbname='.$this->tabDb['dbName'].';charset=utf8', $this->tabDb['username'], $this->tabDb['psswd']);
-
-	    } catch(Exception $e) {
-
-	        die('Erreur : '.$e->getMessage());
-
-	    }
-
-	}
-
+            $this->db = new \PDO('mysql:host='.$this->tabDb['host'].';dbname='.$this->tabDb['dbName'].';charset=utf8', $this->tabDb['username'], $this->tabDb['psswd']);
+        } catch (Exception $e) {
+            die('Erreur : '.$e->getMessage());
+        }
+    }
 }

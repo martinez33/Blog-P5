@@ -1,15 +1,10 @@
 <?php 
 namespace App\Controler;
 
-
-class ContactControler 
+class ContactControler
 {
-
-	public function __invoke()
-	{ 
-
-		require("../src/View/frontend/contactView.php");
-					
-	}
-
+    public function __invoke()
+    {
+        require("../src/View/frontend/contactView.php");
+    }
 }

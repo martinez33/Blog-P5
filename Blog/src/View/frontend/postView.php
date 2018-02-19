@@ -6,9 +6,9 @@
 
 		<?php
 
-		foreach ($post as $post) : {
+        foreach ($post as $post) : {
 
-			?>
+            ?>
 
 			<?php $title=$post->getTitle(); ?>
 
@@ -22,25 +22,21 @@
 
 				<?php
 
-				if(!empty($post->getModificationDate())) {
-
+                if (!empty($post->getModificationDate())) {
                     ?>
 
                   	<p class="blog-post-meta" style="text-align: right;">Modifié le : <?= $post->getModificationDate() ?></p>
 
                 	<?php
-
                 } else {
-                		
-                  	?>
+                    ?>
 
                   	<p class="blog-post-meta" style="text-align: right;">Création le : <?= $post->getCreationDate() ?></p>
 
                   	<?php
-
                 }
 
-		        ?>
+                ?>
 
 				<?= nl2br($post->getChapo()) ?><br />
 
@@ -56,9 +52,9 @@
 
 			<?php
 
-		}endforeach;
-				
-		?>
+        }endforeach;
+                
+        ?>
 
 	</div>
 

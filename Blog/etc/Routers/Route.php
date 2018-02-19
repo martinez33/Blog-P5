@@ -1,10 +1,8 @@
 <?php 
 namespace Core\Routers;
 
-
-class Route 
+class Route
 {
-
     private $path;
     private $action;
     private $method;
@@ -14,86 +12,63 @@ class Route
 
     public function __construct($path, $action, $params=null, $method = 'GET')
     {
-
         $this->path = $path;
         $this->action = $action;
-        $this->method = $method;        
+        $this->method = $method;
         $this->params = $params;
-
     }
 
-	public function getPath()
+    public function getPath()
     {
+        return $this->path;
+    }
 
-	    return $this->path;
-
-	}
-
-	public function getAction()
+    public function getAction()
     {
+        return $this->action;
+    }
 
-	   	return $this->action;
-
-	}
-
-	public function getParams()
+    public function getParams()
     {
-
-	    return $this->params[':id'];
-
-	}
+        return $this->params[':id'];
+    }
 
     public function getControler()
     {
-
-    	return $this->controler;
-
+        return $this->controler;
     }
 
     public function getMethod()
     {
-
-    	return $this->method;
-
+        return $this->method;
     }
    
-	public function setPath($path)
+    public function setPath($path)
     {
+        $this->path = $path;
+    }
 
-	    $this->path = $path;
-
-	}
-
-	public function setAction($action)
+    public function setAction($action)
     {
+        $this->action = $action;
+    }
 
-	    $this->action = $action;
-
-	}
-
-	public function setParams($params)
+    public function setParams($params)
     {
-
-	    $this->params[':id'] = $params;
-
-	}
+        $this->params[':id'] = $params;
+    }
 
     public function setControler($controler)
     {
+        $regex = '#Config#';
+        $replace = '';
 
-    	$regex = '#Config#';
-    	$replace = '';
-
-    	$controler = preg_replace($regex, $replace, $controler);
-    	$this->controler = new $controler();
-
+        $controler = preg_replace($regex, $replace, $controler);
+        $this->controler = new $controler();
     }
 
     public function setMethod($method)
     {
-
-    	$this->method = $method;
-
+        $this->method = $method;
     }
-
 }

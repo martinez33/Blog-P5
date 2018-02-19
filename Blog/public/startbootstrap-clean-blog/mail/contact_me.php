@@ -1,13 +1,12 @@
 <?php
 // Check for empty fields
-if(empty($_POST['name'])      ||
+if (empty($_POST['name'])      ||
    empty($_POST['email'])     ||
    empty($_POST['message'])   ||
-   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-   {
-  	throw new \Exception( "No arguments Provided!");
-   //return false;
-   }
+   !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    throw new \Exception("No arguments Provided!");
+    //return false;
+}
    
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
@@ -18,9 +17,8 @@ $to = 'martinez.forestier@gmail.com'; // Add your email address inbetween the ''
 $email_subject = "Website Contact Form:  $name";
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
 $headers = "From: martinez.forestier@gmail.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-$headers .= "Reply-To: $email_address";  
+$headers .= "Reply-To: $email_address";
 
 mail($to, $email_subject, $email_body, $message, $headers);
 
-//return true;         
-?>
+//return true;

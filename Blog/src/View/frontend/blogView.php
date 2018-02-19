@@ -10,9 +10,9 @@
 											
 		<?php
 
-		foreach ($posts as $post) : {
+        foreach ($posts as $post) : {
 
-		?>
+        ?>
 
 			<div class="posts" style="background-color: #d3d3d3; padding: 10px; margin: 5px;">
 
@@ -24,25 +24,21 @@
 
 				<?php
 
-				if(!empty($post->getModificationDate())) {
-
-                ?>
+                if (!empty($post->getModificationDate())) {
+                    ?>
 
                     <p class="blog-post-meta" style="text-align: right;">Modifié le : <?= $post->getModificationDate() ?></p>
 
                 <?php
-
                 } else {
-
-                ?>
+                    ?>
 
                     <p class="blog-post-meta" style="text-align: right;">Création le : <?= $post->getCreationDate() ?></p>
 
                 <?php
-
                 }
 
-		        ?>
+                ?>
 										                
 				<p>
 
@@ -56,9 +52,9 @@
 
 		<?php
 
-		} endforeach;
+        } endforeach;
 
-		?>
+        ?>
 
 	</div>
 		

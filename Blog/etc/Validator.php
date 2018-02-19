@@ -1,67 +1,52 @@
 <?php 
 namespace Core;
 
-
-class Validator {
-
-	private $error ;
-
-
-	public function checkSQL($entries)
-	{
+class Validator
+{
+    private $error ;
 
 
-	    $regex = '#<[\n\r\s]*script[^>]*[' .
-		' \n\r\s]*(type\s?=\s?"text\/javascript")*>.*?<[\n\r\s]*\/script[^>]*>#i';
-		$replace = '';
+    public function checkSQL($entries)
+    {
+        $regex = '#<[\n\r\s]*script[^>]*[' .
+        ' \n\r\s]*(type\s?=\s?"text\/javascript")*>.*?<[\n\r\s]*\/script[^>]*>#i';
+        $replace = '';
 
 
-		$sql = [
-			'INSERT' => '',
-			'UPDATE' => '',
-			'DELETE' => '',
-			'OR' => '',
-			'WHERE' => ''
-		];
+        $sql = [
+            'INSERT' => '',
+            'UPDATE' => '',
+            'DELETE' => '',
+            'OR' => '',
+            'WHERE' => ''
+        ];
 
-		$search = preg_match($regex, $entries, $matches);
+        $search = preg_match($regex, $entries, $matches);
 
-		if($search != null) {
+        if ($search != null) {
+            $this->error =  true;
 
-			$this->error =  true;
+            $entriesCleanJS = preg_replace($regex, $replace, $entries);
 
-			$entriesCleanJS = preg_replace($regex, $replace, $entries);
+            $clean = strtr($entriesCleanJS, $sql);
+        } else {
+            $clean = strtr($entries, $sql);
 
-			$clean = strtr($entriesCleanJS, $sql);
-			
-		} else {
+            if ($clean !== $entries) {
+                $this->error = true;
+            }
+        }
+        
+        return $clean;
+    }
 
-		    $clean = strtr($entries, $sql);
+    public function getError()
+    {
+        return $this->error;
+    }
 
-			if($clean !== $entries) {
-
-				$this->error = true;
-
-			}
-			
-		}
-		
-		return $clean;	 
-		
-	}
-
-	public function getError()
-	{
-
-		return $this->error;
-
-	}
-
-	public function setError($error)
-	{
-
-		$this->error = $error;
-
-	}
-
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
 }

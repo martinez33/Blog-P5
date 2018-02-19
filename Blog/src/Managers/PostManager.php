@@ -1,236 +1,181 @@
 <?php
 namespace App\Managers;
 
-
 use App\Model\Post;
 use App\Managers\Manager;
 use App\Managers\Validator;
 
-
 class PostManager extends Manager
 {
+    private $entries = [];
+    
 
-	private $entries = [];
-	
+    public function getEntries()
+    {
+        return $this->entries;
+    }
 
- 	public function getEntries()
- 	{
+    public function getPosts()
+    {
+        $req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 4');
+        
+        $req->execute();
 
-	 	return $this->entries;
+        $datas = $req->fetchall();
 
-	 }
+        foreach ($datas as $post) {
+            $this->entries[] = $this->buildModel($post);
+        }
 
-	public function getPosts()
-	{
+        return $this->getEntries();
+    }
 
+    public function getHomePosts()
+    {
+        $req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 2');
+        
+        $req->execute();
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 4');
-		
-		$req->execute();
+        $datas = $req->fetchall();
 
-		$datas = $req->fetchall();		
+        foreach ($datas as $post) {
+            $this->entries[] = $this->buildModel($post);
+        }
 
-		foreach ($datas as $post) {
-			
-			$this->entries[] = $this->buildModel($post);
+        return $this->getEntries();
+    }
 
-		}
+    public function getPostById($id)
+    {
+        $req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y \') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post WHERE id = :id');
 
-		return $this->getEntries();	
+        $req->execute([':id' => $id]);
 
-	}
+        $datas = $req->fetchall();
 
-	public function getHomePosts()
-	{
+        foreach ($datas as $post) {
+            $this->entries[] = $this->buildModel($post);
+        }
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 2');
-		
-		$req->execute();
+        return $this->getEntries();
+    }
 
-		$datas = $req->fetchall();		
+    public function createPost(Post $post)
+    {
+        try {
+            $cleanTitle = $this->validator->checkSQL($post->getTitle($post));
 
-		foreach ($datas as $post) {
-			
-			$this->entries[] = $this->buildModel($post);
+            $error = $this->validator->getError();
 
-		}
+            if ($error) {
+                $post->setTitle($cleanTitle);
+            }
 
-		return $this->getEntries();	
+            $cleanChapo = $this->validator->checkSQL($post->getChapo($post));
 
-	}
+            $error = $this->validator->getError();
 
-	public function getPostById($id)
-	{
+            if ($error) {
+                $post->setChapo($cleanChapo);
+            }
 
-		$req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y \') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post WHERE id = :id');
+            $cleanContent = $this->validator->checkSQL($post->getContent($post));
 
-		$req->execute([':id' => $id]);
+            $error = $this->validator->getError();
 
-		$datas = $req->fetchall();
+            if ($error) {
+                $post->setContent($cleanContent);
+            }
 
-		foreach ($datas as $post) {
+            $cleanAuthor = $this->validator->checkSQL($post->getAuthor($post));
 
-			$this->entries[] = $this->buildModel($post);
+            $error = $this->validator->getError();
 
-		}
+            if ($error) {
+                $post->setAuthor($cleanAuthor);
 
-		return $this->getEntries();
-	}
+                throw new \Exception('SQL Injection detected !');
+            } else {
+                throw new \Exception('Post created !');
+            }
+        } catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
 
-	public function createPost(Post $post)
-	{
+            require('../src/View/frontend/successView.php');
+        }
 
-		try {
-
-			$cleanTitle = $this->validator->checkSQL($post->getTitle($post));
-
-			$error = $this->validator->getError();
-
-			if ($error) {
-
-				$post->setTitle($cleanTitle);
-
-			}
-
-			$cleanChapo = $this->validator->checkSQL($post->getChapo($post));
-
-			$error = $this->validator->getError();
-
-			if ($error) {
-
-				$post->setChapo($cleanChapo);
-
-			}
-
-			$cleanContent = $this->validator->checkSQL($post->getContent($post));
-
-			$error = $this->validator->getError();
-
-			if ($error) {
-
-				$post->setContent($cleanContent);
-
-			}
-
-			$cleanAuthor = $this->validator->checkSQL($post->getAuthor($post));
-
-			$error = $this->validator->getError();
-
-			if ($error) {
-
-				$post->setAuthor($cleanAuthor);
-
-				throw new \Exception('SQL Injection detected !');			  
-
-			} else {
-
-				throw new \Exception('Post created !');
-
-			}
-
-		} catch(\Exception $e) {
-
-	      	$errorMessage = $e->getMessage();
-
-	      	require('../src/View/frontend/successView.php');
-
-	    }
-
-		$req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
-		
-		$req->execute([
+        $req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
+        
+        $req->execute([
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
         ':content' => htmlspecialchars($post->getContent()),
         ':author' => htmlspecialchars($post->getAuthor())
       ]);
+    }
 
-	}
+    public function updatePost($id, Post $post)
+    {
+        try {
+            $cleanTitle = $this->validator->checkSQL($post->getTitle($post));
 
-	public function updatePost($id, Post $post)
-	{
+            $error = $this->validator->getError();
 
-		try {
+            if ($error) {
+                $post->setTitle($cleanTitle);
+            }
 
-			$cleanTitle = $this->validator->checkSQL($post->getTitle($post));
+            $cleanChapo = $this->validator->checkSQL($post->getChapo($post));
 
-			$error = $this->validator->getError();
+            $error = $this->validator->getError();
 
-			if ($error) {
+            if ($error) {
+                $post->setChapo($cleanChapo);
+            }
 
-				$post->setTitle($cleanTitle);
+            $cleanContent = $this->validator->checkSQL($post->getContent($post));
 
-			}
+            $error = $this->validator->getError();
 
-			$cleanChapo = $this->validator->checkSQL($post->getChapo($post));
+            if ($error) {
+                $post->setContent($cleanContent);
+            }
 
-			$error = $this->validator->getError();
+            $cleanAuthor = $this->validator->checkSQL($post->getAuthor($post));
 
-			if ($error) {
+            $error = $this->validator->getError();
 
-				$post->setChapo($cleanChapo);
+            if ($error) {
+                $post->setAuthor($cleanAuthor);
+            }
+            
+            if ($error) {
+                throw new \Exception('SQL Injection detected !');
+            } else {
+                throw new \Exception('Post modified !');
+            }
+        } catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
 
-			}
+            require('../src/View/frontend/successView.php');
+        }
 
-			$cleanContent = $this->validator->checkSQL($post->getContent($post));
-
-			$error = $this->validator->getError();
-
-			if ($error) {
-
-				$post->setContent($cleanContent);
-
-			}
-
-			$cleanAuthor = $this->validator->checkSQL($post->getAuthor($post));
-
-			$error = $this->validator->getError();
-
-			if ($error) {
-
-				$post->setAuthor($cleanAuthor);
-
-			}
-			
-			if($error) {
-
-				throw new \Exception('SQL Injection detected !');		
-					  
-			} else {
-
-				throw new \Exception('Post modified !');
-
-			}
-
-		} catch(\Exception $e) {
-
-	      	$errorMessage = $e->getMessage();
-
-	      	require('../src/View/frontend/successView.php');
-
-	    }
-
-		$req = $this->db->prepare('UPDATE post SET modificationDate=NOW(), title=:title, chapo=:chapo, content=:content, author=:author, status="modified" WHERE id=:id');
-		  $req->execute([
-		':id' => $id,
+        $req = $this->db->prepare('UPDATE post SET modificationDate=NOW(), title=:title, chapo=:chapo, content=:content, author=:author, status="modified" WHERE id=:id');
+        $req->execute([
+        ':id' => $id,
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
         ':content' => htmlspecialchars($post->getContent()),
         ':author' => htmlspecialchars($post->getAuthor())
       ]);
+    }
 
-	}
+    public function buildModel($data)
+    {
+        $post = new Post();
 
-	public function buildModel($data)
-	{
-	    $post = new Post();
+        $post->hydrate($data);
 
-	    $post->hydrate($data); 
-
-	    return $post;
-	 }
-	
+        return $post;
+    }
 }
-
-	
-

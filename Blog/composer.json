@@ -21,6 +21,7 @@
 		}
 	},
     "require": {
-        "phpmailer/phpmailer": "^6.0"
+        "phpmailer/phpmailer": "^6.0",
+        "friendsofphp/php-cs-fixer": "^2.10"
     }
 }
