@@ -2,7 +2,7 @@
 namespace Core\Routers;
 
 /**
-* 
+* Construit, initialise et renvoie les routes
 */
 class Route
 {
