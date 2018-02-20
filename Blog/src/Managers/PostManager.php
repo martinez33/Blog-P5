@@ -32,10 +32,8 @@ class PostManager extends Manager
     public function getPosts()
     {
         $req = $this->db->prepare(
-            'SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr,
-             DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
-              title, chapo, content, author  
-              FROM post ORDER BY creationDate DESC LIMIT 0, 4'
+            'SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
+              title, chapo, content, author FROM post ORDER BY creationDate DESC LIMIT 0, 4'
         );
         
         $req->execute();

@@ -31,8 +31,9 @@ class Route
     public function __construct(
         $path,
         $action,
-        $method = 'GET',
-        $params=null
+        $params=null,
+        $method = 'GET'
+        
     ) {
         $this->path = $path;
         $this->action = $action;
