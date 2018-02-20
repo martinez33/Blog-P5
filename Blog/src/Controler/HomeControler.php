@@ -3,16 +3,24 @@ namespace App\Controler;
 
 use App\Managers\PostManager;
 
+/**
+* Controle l'affichage du home
+*/
 class HomeControler
 {
     private $homePost;
 
-
+    /**
+    * 
+    */
     public function __construct()
     {
         $this->homePost = new PostManager();
     }
 
+    /**
+    * 
+    */
     public function __invoke()
     {
         try {

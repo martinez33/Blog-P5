@@ -1,6 +1,9 @@
 <?php 
 namespace Core\Routers;
 
+/**
+* 
+*/
 class Route
 {
     private $path;
@@ -9,7 +12,12 @@ class Route
     private $params = [];
     private $controler;
 
-
+    /**
+    * @param string $path valeur du chemin 
+    * @param string $action action de la route 
+    * @param array $paprams tableau de paramètre 
+    * @param string $method methode de recupération des données 
+    */
     public function __construct($path, $action, $params=null, $method = 'GET')
     {
         $this->path = $path;
@@ -18,31 +26,49 @@ class Route
         $this->params = $params;
     }
 
+    /**
+    * @return $this->path
+    */
     public function getPath()
     {
         return $this->path;
     }
 
+    /**
+    * @return $this->action
+    */
     public function getAction()
     {
         return $this->action;
     }
-
+    
+    /**
+    * @return $this->params[':id']
+    */
     public function getParams()
     {
         return $this->params[':id'];
     }
-
+    
+    /**
+    * @return $this->controler
+    */
     public function getControler()
     {
         return $this->controler;
     }
-
+    
+    /**
+    * @return $this->method
+    */
     public function getMethod()
     {
         return $this->method;
     }
-   
+    
+    /**
+     * @param string $path
+     */    
     public function setPath($path)
     {
         $this->path = $path;

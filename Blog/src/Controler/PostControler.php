@@ -7,7 +7,6 @@ class PostControler
 {
     private $onePost;
 
-
     public function __construct()
     {
         $this->onePost = new PostManager();
