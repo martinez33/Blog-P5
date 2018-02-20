@@ -2,7 +2,6 @@
 
 require './../vendor/autoload.php';
 
-
 use Core\Routers\Router;
 
 $router = new Router();

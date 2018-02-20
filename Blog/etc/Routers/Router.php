@@ -1,17 +1,32 @@
 <?php
+
 namespace Core\Routers;
 
+/**
+ * Charge les routes, compare les routes avec
+ *
+ * l'URL et appel l'action en correspondance avec l'URL
+ */
 class Router
 {
+    /**
+     * @var array $routes
+     * @var string $params
+     */
     private $routes = [];
     private $params;
-  
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->loadRoutes();
     }
-
+    
+    /**
+     * Load routes and fill in array routes
+     */
     public function loadRoutes()
     {
         $tabRoutes = require __DIR__ . './../../config/routes.php';
@@ -20,7 +35,10 @@ class Router
             $this->routes[] = new Route($route['path'], $route['action'], $route['params'], $route['method']);
         }
     }
-
+    
+    /**
+     * @param string $url
+     */
     public function match($url)
     {
         if (preg_match('#\/([0-9]+)#', $url, $matchId)) {
@@ -56,15 +74,12 @@ class Router
 
                 for ($i=0; $i < $max  ; $i++) {
                     if ($this->routes[$i]->getPath() === $this->match($url) && $this->routes[$i]->getMethod() != null && !$this->routes[$i]->getParams()) {
-
                         $this->routes[$i]->setControler($this->routes[$i]->getAction());
                  
                         $controler = $this->routes[$i]->getControler();
 
                         return $controler();
-
                     } elseif ($this->routes[$i]->getPath() === $this->match($url)) {
-
                         $this->routes[$i]->setParams($this->params);
 
                         $this->routes[$i]->setControler($this->routes[$i]->getAction());
@@ -72,7 +87,6 @@ class Router
                         $controler = $this->routes[$i]->getControler();
 
                         return $controler($this->params);
-                        
                     }
                 }
             } elseif ($_SERVER['DOCUMENT_ROOT'] === '500') {

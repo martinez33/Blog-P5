@@ -1,18 +1,32 @@
 <?php 
+
 namespace App\Controler;
 
 use App\Managers\PostManager;
 
+/**
+ * Controle l'affichage des posts
+ */
 class BlogControler
 {
+    /**
+     * @var array $blogPosts
+     */
     private $blogPosts;
 
-
+    /**
+     * Constructor
+     *
+     * instancie un objet PostMPanager
+     */
     public function __construct()
     {
         $this->blogPosts = new PostManager();
     }
-
+    
+    /**
+     * Fonction invoqué pour afficher les posts
+     */
     public function __invoke()
     {
         try {

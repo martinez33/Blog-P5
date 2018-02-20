@@ -1,26 +1,34 @@
-<?php 
+<?php
+
 namespace App\Controler;
 
 use App\Managers\PostManager;
 
 /**
-* Controle l'affichage du home
-*/
+ * Controle l'affichage du home
+ */
 class HomeControler
 {
+    /**
+     * @var array $homePost
+     */
     private $homePost;
 
     /**
-    * 
-    */
+     * Constructor
+     *
+     * instancie un objet PostMPanager
+     */
     public function __construct()
     {
         $this->homePost = new PostManager();
     }
 
     /**
-    * 
-    */
+     * Fonction invoqué pour afficher les posts
+     *
+     * de la page home
+     */
     public function __invoke()
     {
         try {

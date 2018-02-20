@@ -1,20 +1,34 @@
 <?php
+
 namespace App\Managers;
 
 use App\Model\Post;
 use App\Managers\Manager;
 use App\Managers\Validator;
 
+/**
+ * herite de Manager
+ *
+ * Contient les fonctionnalités de l'application
+ */
 class PostManager extends Manager
 {
+    /**
+     * @var array $entries
+     */
     private $entries = [];
     
-
+    /**
+     * @return $this->entries
+     */
     public function getEntries()
     {
         return $this->entries;
     }
-
+    
+    /**
+     * @return $this->getEntries()
+     */
     public function getPosts()
     {
         $req = $this->db->prepare(
@@ -34,7 +48,10 @@ class PostManager extends Manager
 
         return $this->getEntries();
     }
-
+    
+    /**
+     * @return $this->getEntries()
+     */
     public function getHomePosts()
     {
         $req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 2');
@@ -49,7 +66,11 @@ class PostManager extends Manager
 
         return $this->getEntries();
     }
-
+    
+    /**
+     * @param int $id
+     * @return $this->getEntries()
+     */
     public function getPostById($id)
     {
         $req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y \') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post WHERE id = :id');
@@ -64,7 +85,10 @@ class PostManager extends Manager
 
         return $this->getEntries();
     }
-
+    
+    /**
+     * @param Post $post
+     */
     public function createPost(Post $post)
     {
         try {
@@ -118,7 +142,11 @@ class PostManager extends Manager
         ':author' => htmlspecialchars($post->getAuthor())
       ]);
     }
-
+    
+    /**
+     * @param int $id
+     * @param Post $post
+     */
     public function updatePost($id, Post $post)
     {
         try {
@@ -174,7 +202,11 @@ class PostManager extends Manager
         ':author' => htmlspecialchars($post->getAuthor())
       ]);
     }
-
+    
+    /**
+     * @param array $data
+     * @return $post
+     */
     public function buildModel($data)
     {
         $post = new Post();

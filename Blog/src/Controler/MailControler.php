@@ -1,15 +1,26 @@
-<?php 
+<?php
+
 namespace App\Controler;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+/**
+ * Controle l'envoie de mail
+ */
 class MailControler
 {
+    /**
+     *@var array $idTab recupère les identifaints de connexion
+     */
     private $idTab;
 
-
-    public function __invoke() //sendMail
+    /**
+     * Fonction invoqué pour l'envoie de mail
+     *
+     * via le server SMTP gmail
+     */
+    public function __invoke()
     {
         $this->idTab = 	require __DIR__.'./../../config/mailId.php';
         

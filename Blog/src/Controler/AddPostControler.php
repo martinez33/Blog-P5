@@ -1,18 +1,32 @@
-<?php 
+<?php
+
 namespace App\Controler;
 
 use App\Managers\PostManager;
 
+/**
+ * Controle l'ajout de post
+ */
 class AddPostControler
 {
+    /**
+     * @var array $blogPosts
+     */
     private $blogPosts;
 
-
+    /**
+     * Constructor
+     *
+     * instancie un objet PostMPanager
+     */
     public function __construct()
     {
         $this->blogPosts = new PostManager();
     }
- 
+    
+    /**
+     * Fonction invoqué pour construire et créer le post
+     */
     public function __invoke()
     {
         try {
