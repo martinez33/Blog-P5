@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Model;
 
 use App\Managers\Validator;

@@ -30,7 +30,11 @@ class ModifyPostControler
     public function __invoke($id)
     {
         try {
-            if (!empty($_POST['title']) && !empty($_POST['chapo']) && !empty($_POST['content']) && !empty($_POST['author'])) {
+            if (!empty($_POST['title'])
+                && !empty($_POST['chapo'])
+                && !empty($_POST['content'])
+                && !empty($_POST['author'])
+            ) {
                 $post = $this->onePost->buildModel($_POST);
                 
                 $updt = $this->onePost->updatePost($id, $post);

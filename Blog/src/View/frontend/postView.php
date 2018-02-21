@@ -2,133 +2,143 @@
 
 <div class="row">
 
-	<div class="col-lg-8">
+    <div class="col-lg-8">
 
-		<?php
+        <?php
 
-        foreach ($post as $post) : {
+        foreach ($post as $post) :
+            {
 
             ?>
 
-			<?php $title=$post->getTitle(); ?>
+            <?php $title=$post->getTitle(); ?>
 
-			<div class="news" style="background-color: #d3d3d3; padding: 10px; margin: 5px;">
+            <div class="news" style="background-color: #d3d3d3; padding: 10px; margin: 5px;">
 
-				<h3 style="text-align: center;" >
+                <h3 style="text-align: center;" >
 
-					<?= $post->getTitle() ?>
+                    <?= $post->getTitle() ?>
 
-				</h3>
+                </h3>
 
-				<?php
+                <?php
 
                 if (!empty($post->getModificationDate())) {
                     ?>
 
-                  	<p class="blog-post-meta" style="text-align: right;">Modifié le : <?= $post->getModificationDate() ?></p>
+                    <p class="blog-post-meta" style="text-align: right;">
+                        Modifié le : <?= $post->getModificationDate() ?>
+                    </p>
 
-                	<?php
+                    <?php
                 } else {
                     ?>
 
-                  	<p class="blog-post-meta" style="text-align: right;">Création le : <?= $post->getCreationDate() ?></p>
+                    <p class="blog-post-meta" style="text-align: right;">
+                        Création le : <?= $post->getCreationDate() ?>
+                        </p>
 
-                  	<?php
+                    <?php
                 }
 
                 ?>
 
-				<?= nl2br($post->getChapo()) ?><br />
+                <?= nl2br($post->getChapo()) ?><br />
 
-				<?= nl2br($post->getContent()) ?>
+                <?= nl2br($post->getContent()) ?>
 
-				<br />
+                <br />
 
-				<?= nl2br($post->getAuthor()) ?>
+                <?= nl2br($post->getAuthor()) ?>
 
-				<br />
+                <br />
 
-			</div>
+            </div>
 
-			<?php
+            <?php
 
-        }endforeach;
+            }
+        endforeach;
                 
         ?>
 
-	</div>
+    </div>
 
-	<div class="col-lg-4 col-md-2 mx-auto" >
+    <div class="col-lg-4 col-md-2 mx-auto" >
 
-		<div style="border: 1px solid black; background-color: #778899; border-radius: 10px;  padding: 10px;">
+        <div style="border: 1px solid black; background-color: #778899;
+         border-radius: 10px;  padding: 10px;">
 
-			<h2 >Modifier le post :</h2>
+            <h2 >Modifier le post :</h2>
 
-			<h3><?= $post->getTitle() ?></h3>
+            <h3><?= $post->getTitle() ?></h3>
 
-			<br>
+            <br>
 
-			<form method="post" action="/post/modify/<?= $post->getId(); ?>"  name="" id="contactForm" novalidate >
+            <form method="post" action="/post/modify/<?= $post->getId(); ?>" 
+             name="" id="contactForm" novalidate >
 
-			    <div class="control-group">
+                <div class="control-group">
 
-			        <div class="form-group "> 
+                    <div class="form-group "> 
 
-			            <label for="title">Titre :</label>
-			            <input type="text" id="title" name="title" class="form-control" placeholder="Titre"/><!--input type="text" name="name"  id="name" -->
-			            <p class="help-block text-danger"></p>
+                        <label for="title">Titre :</label>
+                        <input type="text" id="title" name="title" class="form-control" placeholder="Titre"/>
+                        <p class="help-block text-danger"></p>
 
-			        </div>
+                    </div>
 
-			    </div>
+                </div>
 
-			    <div class="control-group">
+                <div class="control-group">
 
-			        <div class="form-group ">
+                    <div class="form-group ">
 
-			            <label>Chapo :</label>
-			            <input type="text" name="chapo" class="form-control" placeholder="Sous-titre" id="chapo" >
-			            <p class="help-block text-danger"></p>
-			        </div>
+                        <label>Chapo :</label>
+                        <input type="text" name="chapo" class="form-control" placeholder="Sous-titre" id="chapo" >
+                        <p class="help-block text-danger"></p>
+                    </div>
 
-			    </div>
+                </div>
 
-			    <div class="control-group">
+                <div class="control-group">
 
-			        <div class="form-group ">
+                    <div class="form-group ">
 
-			            <label>Contenu du post :</label>
-			            <textarea name="content" rows="5" class="form-control" placeholder="Contenu du post" id="content" ></textarea>
-			            <p class="help-block text-danger"></p>
+                        <label>Contenu du post :</label>
+                        <textarea name="content" rows="5" class="form-control" 
+                        placeholder="Contenu du post" id="content" >
+                        </textarea>
+                        <p class="help-block text-danger"></p>
 
-			        </div>
+                    </div>
 
-			    </div>
+                </div>
 
-			    <div class="control-group">
+                <div class="control-group">
 
-			        <div class="form-group ">
+                    <div class="form-group ">
 
-			            <label>Auteur :</label>
-			            <input type="text" name="author" class="form-control" placeholder="Auteur" id="author" >
-			            <p class="help-block text-danger"></p>
+                        <label>Auteur :</label>
+                        <input type="text" name="author" class="form-control" placeholder="Auteur" id="author" >
+                        <p class="help-block text-danger"></p>
 
-			        </div>
+                    </div>
 
-			    </div>
+                </div>
 
-			    <div id="success"></div>
+                <div id="success"></div>
 
-			    <div class="form-group">
+                <div class="form-group">
 
-			        <button type="submit" class="btn" id="sendMessageButton">Modifier</button>
+                    <button type="submit" class="btn" id="sendMessageButton">Modifier</button>
 
-			    </div>
+                </div>
 
-			</form>
+            </form>
 
-		</div>
-					
+        </div>
+                    
     </div>
 
 </div>

@@ -22,6 +22,7 @@
 	},
     "require": {
         "phpmailer/phpmailer": "^6.0",
-        "friendsofphp/php-cs-fixer": "^2.10"
+        "friendsofphp/php-cs-fixer": "^2.10",
+        "squizlabs/php_codesniffer": "3.*"
     }
 }

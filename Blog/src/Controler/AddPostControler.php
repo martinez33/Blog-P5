@@ -30,7 +30,10 @@ class AddPostControler
     public function __invoke()
     {
         try {
-            if (!empty($_POST['title']) && !empty($_POST['chapo']) && !empty($_POST['content']) && !empty($_POST['author'])) {
+            if (!empty($_POST['title']) && !empty($_POST['chapo'])
+                && !empty($_POST['content'])
+                && !empty($_POST['author'])
+            ) {
                 $post = $this->blogPosts->buildModel($_POST);
 
                 $this->blogPosts->createPost($post);

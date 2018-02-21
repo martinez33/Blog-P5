@@ -22,12 +22,16 @@ class MailControler
      */
     public function __invoke()
     {
-        $this->idTab = 	require __DIR__.'./../../config/mailId.php';
+        $this->idTab =  require __DIR__.'./../../config/mailId.php';
         
         try {
             $val = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
-            if (!empty($_POST['lastName']) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
+            if (!empty($_POST['lastName'])
+                && !empty($_POST['name'])
+                && !empty($_POST['email'])
+                && !empty($_POST['message'])
+            ) {
                 if ($val != false) {
                     try {
                         $name = $_POST['name'];

@@ -32,8 +32,9 @@ class PostManager extends Manager
     public function getPosts()
     {
         $req = $this->db->prepare(
-            'SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
-              title, chapo, content, author FROM post ORDER BY creationDate DESC LIMIT 0, 4'
+            'SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr,
+            DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
+            title, chapo, content, author FROM post ORDER BY creationDate DESC LIMIT 0, 4'
         );
         
         $req->execute();
@@ -52,7 +53,11 @@ class PostManager extends Manager
      */
     public function getHomePosts()
     {
-        $req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 2');
+        $req = $this->db->prepare(
+            'SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDateFr,
+            DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
+            title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 2'
+        );
         
         $req->execute();
 
@@ -71,7 +76,11 @@ class PostManager extends Manager
      */
     public function getPostById($id)
     {
-        $req = $this->db->prepare('SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y \') AS creationDateFr, DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr, title, chapo, content, author  FROM post WHERE id = :id');
+        $req = $this->db->prepare(
+            'SELECT id, DATE_FORMAT(creationDate, \'%d/%m/%Y \') AS creationDateFr,
+            DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
+            title, chapo, content, author  FROM post WHERE id = :id'
+        );
 
         $req->execute([':id' => $id]);
 
@@ -131,14 +140,17 @@ class PostManager extends Manager
             require('../src/View/frontend/successView.php');
         }
 
-        $req = $this->db->prepare('INSERT INTO post(creationDate, title, chapo, content, author, status) VALUES ( NOW(), :title, :chapo, :content, :author, "created")');
+        $req = $this->db->prepare(
+            'INSERT INTO post(creationDate, title, chapo, content, author, status)
+            VALUES ( NOW(), :title, :chapo, :content, :author, "created")'
+        );
         
         $req->execute([
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
         ':content' => htmlspecialchars($post->getContent()),
         ':author' => htmlspecialchars($post->getAuthor())
-      ]);
+        ]);
     }
     
     /**
@@ -191,14 +203,18 @@ class PostManager extends Manager
             require('../src/View/frontend/successView.php');
         }
 
-        $req = $this->db->prepare('UPDATE post SET modificationDate=NOW(), title=:title, chapo=:chapo, content=:content, author=:author, status="modified" WHERE id=:id');
+        $req = $this->db->prepare(
+            'UPDATE post SET modificationDate=NOW(),
+            title=:title, chapo=:chapo, content=:content,
+            author=:author, status="modified" WHERE id=:id'
+        );
         $req->execute([
         ':id' => $id,
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
         ':content' => htmlspecialchars($post->getContent()),
         ':author' => htmlspecialchars($post->getAuthor())
-      ]);
+        ]);
     }
     
     /**

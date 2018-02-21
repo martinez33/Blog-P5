@@ -58,13 +58,10 @@ class Router
 
         foreach ($this->routes as $route) {
             switch ($route->getPath()) {
-
                 case $this->match($url):
-
                     $tmp = true;
 
                     break;
-
             }
         }
 
@@ -72,8 +69,11 @@ class Router
             if ($tmp) {
                 $max = count($this->routes);
 
-                for ($i=0; $i < $max  ; $i++) {
-                    if ($this->routes[$i]->getPath() === $this->match($url) && $this->routes[$i]->getMethod() != null && !$this->routes[$i]->getParams()) {
+                for ($i=0; $i < $max; $i++) {
+                    if ($this->routes[$i]->getPath() === $this->match($url)
+                        && $this->routes[$i]->getMethod() != null
+                        && !$this->routes[$i]->getParams()
+                    ) {
                         $this->routes[$i]->setControler($this->routes[$i]->getAction());
                  
                         $controler = $this->routes[$i]->getControler();
