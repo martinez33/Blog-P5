@@ -5,17 +5,17 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle l'affichage du home
+ * Controle l'affichage du home.
  */
 class HomeControler
 {
     /**
-     * @var array $homePost
+     * @var array
      */
     private $homePost;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * instancie un objet PostMPanager
      */
@@ -25,7 +25,7 @@ class HomeControler
     }
 
     /**
-     * Fonction invoqué pour afficher les posts
+     * Fonction invoqué pour afficher les posts.
      *
      * de la page home
      */
@@ -34,15 +34,15 @@ class HomeControler
         try {
             $posts = $this->homePost->getHomePosts();
 
-            if ($posts === false) {
+            if (false === $posts) {
                 throw new Exception('Impossible d\'afficher les posts');
             } else {
-                require("../src/View/frontend/homeView.php");
+                require '../src/View/frontend/homeView.php';
             }
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
 
-            require('../src/View/frontend/errorView.php');
+            require '../src/View/frontend/errorView.php';
         }
     }
 }

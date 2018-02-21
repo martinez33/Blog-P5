@@ -7,17 +7,15 @@
         <?php
 
         foreach ($post as $post) :
-            {
-
             ?>
 
-            <?php $title=$post->getTitle(); ?>
+            <?php $title = $post->getTitle(); ?>
 
             <div class="news" style="background-color: #d3d3d3; padding: 10px; margin: 5px;">
 
                 <h3 style="text-align: center;" >
 
-                    <?= $post->getTitle() ?>
+                    <?= $post->getTitle(); ?>
 
                 </h3>
 
@@ -27,7 +25,7 @@
                     ?>
 
                     <p class="blog-post-meta" style="text-align: right;">
-                        Modifié le : <?= $post->getModificationDate() ?>
+                        Modifié le : <?= $post->getModificationDate(); ?>
                     </p>
 
                     <?php
@@ -35,7 +33,7 @@
                     ?>
 
                     <p class="blog-post-meta" style="text-align: right;">
-                        Création le : <?= $post->getCreationDate() ?>
+                        Création le : <?= $post->getCreationDate(); ?>
                         </p>
 
                     <?php
@@ -43,23 +41,21 @@
 
                 ?>
 
-                <?= nl2br($post->getChapo()) ?><br />
+                <?= nl2br($post->getChapo()); ?><br />
 
-                <?= nl2br($post->getContent()) ?>
+                <?= nl2br($post->getContent()); ?>
 
                 <br />
 
-                <?= nl2br($post->getAuthor()) ?>
+                <?= nl2br($post->getAuthor()); ?>
 
                 <br />
 
             </div>
 
             <?php
-
-            }
         endforeach;
-                
+
         ?>
 
     </div>
@@ -71,7 +67,7 @@
 
             <h2 >Modifier le post :</h2>
 
-            <h3><?= $post->getTitle() ?></h3>
+            <h3><?= $post->getTitle(); ?></h3>
 
             <br>
 
@@ -143,8 +139,8 @@
 
 </div>
 
-<?php $content = ob_get_clean() ; ?>
+<?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require 'template.php'; ?>
 
   

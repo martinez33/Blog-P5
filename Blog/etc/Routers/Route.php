@@ -1,16 +1,17 @@
 <?php
+
 namespace Core\Routers;
 
 /**
- * Construit, initialise et renvoie les routes
+ * Construit, initialise et renvoie les routes.
  */
 class Route
 {
     /**
-     * @var string $path
+     * @var string
      * @var string $action
      * @var string $method
-     * @var array $params
+     * @var array  $params
      * @var string $controler
      */
     private $path;
@@ -20,12 +21,12 @@ class Route
     private $controler;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param string $path valeur du chemin
-     * @param string $action action de la route
-     * @param array $paprams tableau de paramètre
-     * @param string $method methode de recupération des données
+     * @param string $path    valeur du chemin
+     * @param string $action  action de la route
+     * @param array  $paprams tableau de paramètre
+     * @param string $method  methode de recupération des données
      */
     public function __construct(
         $path,
@@ -54,7 +55,7 @@ class Route
     {
         return $this->action;
     }
-    
+
     /**
      * @return $this->params[':id']
      */
@@ -62,7 +63,7 @@ class Route
     {
         return $this->params[':id'];
     }
-    
+
     /**
      * @return $this->controler
      */
@@ -70,7 +71,7 @@ class Route
     {
         return $this->controler;
     }
-    
+
     /**
      * @return $this->method
      */
@@ -78,7 +79,7 @@ class Route
     {
         return $this->method;
     }
-    
+
     /**
      * @param string $path valeur du chemin
      */
@@ -86,7 +87,7 @@ class Route
     {
         $this->path = $path;
     }
-    
+
     /**
      * @param string $action action de la route
      */
@@ -94,7 +95,7 @@ class Route
     {
         $this->action = $action;
     }
-    
+
     /**
      * @param array $params tableau de paramètre
      */
@@ -102,7 +103,7 @@ class Route
     {
         $this->params[':id'] = $params;
     }
-    
+
     /**
      * @param string $controler action attribué
      */
@@ -114,7 +115,7 @@ class Route
         $controler = preg_replace($regex, $replace, $controler);
         $this->controler = new $controler();
     }
-    
+
     /**
      * @param string $method methode de recupération des données
      */

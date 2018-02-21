@@ -5,17 +5,17 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle l'ajout de post
+ * Controle l'ajout de post.
  */
 class AddPostControler
 {
     /**
-     * @var array $blogPosts
+     * @var array
      */
     private $blogPosts;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * instancie un objet PostMPanager
      */
@@ -23,9 +23,9 @@ class AddPostControler
     {
         $this->blogPosts = new PostManager();
     }
-    
+
     /**
-     * Fonction invoqué pour construire et créer le post
+     * Fonction invoqué pour construire et créer le post.
      */
     public function __invoke()
     {
@@ -37,9 +37,8 @@ class AddPostControler
                 $post = $this->blogPosts->buildModel($_POST);
 
                 $this->blogPosts->createPost($post);
-                
 
-                if ($post == false) {
+                if (false == $post) {
                     throw new \Exception('Impossible d\'ajouter le post');
                 } else {
                     header('Location: /posts');
@@ -50,7 +49,7 @@ class AddPostControler
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
 
-            require('../src/View/frontend/errorView.php');
+            require '../src/View/frontend/errorView.php';
         }
     }
 }

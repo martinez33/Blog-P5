@@ -5,25 +5,25 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle l'affichage d'un post
+ * Controle l'affichage d'un post.
  */
 class PostControler
 {
     /**
-     * @var array $onePost
+     * @var array
      */
     private $onePost;
-    
+
     /**
-     * Constructor instancie un objet PostManager
+     * Constructor instancie un objet PostManager.
      */
     public function __construct()
     {
         $this->onePost = new PostManager();
     }
-    
+
     /**
-     * Fonction invoqué pour afficher un post
+     * Fonction invoqué pour afficher un post.
      *
      * @param int $id
      */
@@ -31,17 +31,16 @@ class PostControler
     {
         try {
             $post = $this->onePost->getPostById($id);
-        
 
-            if ($post === false) {
+            if (false === $post) {
                 throw new Exception('Impossible d\'afficher le post');
             } else {
-                require('../src/View/frontend/postView.php');
+                require '../src/View/frontend/postView.php';
             }
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
 
-            require('../src/View/frontend/errorView.php');
+            require '../src/View/frontend/errorView.php';
         }
     }
 }

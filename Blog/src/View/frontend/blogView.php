@@ -1,6 +1,6 @@
-<?php $title='Le blog'; ?>
+<?php $title = 'Le blog'; ?>
    
-<?php ob_start() ?> 
+<?php ob_start(); ?> 
 
 <div class="row">
         
@@ -13,8 +13,6 @@
         <?php
 
         foreach ($posts as $post) :
-            {
-
         ?>
 
             <div class="posts" style="background-color: #d3d3d3;
@@ -23,7 +21,7 @@
 
                 <h3 style="text-align: center;">
 
-                        <?= $post->getTitle() ?>
+                        <?= $post->getTitle(); ?>
 
                 </h3>
 
@@ -33,7 +31,7 @@
                     ?>
 
                     <p class="blog-post-meta" style="text-align: right;">
-                        Modifié le : <?= $post->getModificationDate() ?>        
+                        Modifié le : <?= $post->getModificationDate(); ?>        
                     </p>
 
                 <?php
@@ -41,7 +39,7 @@
                     ?>
 
                     <p class="blog-post-meta" style="text-align: right;">
-                        Création le : <?= $post->getCreationDate() ?>       
+                        Création le : <?= $post->getCreationDate(); ?>       
                     </p>
 
                 <?php
@@ -51,17 +49,15 @@
                                                         
                 <p>
 
-                    <?= nl2br($post->getChapo()) ?><br />
+                    <?= nl2br($post->getChapo()); ?><br />
                         
-                    <a href="/posts/<?=$post->getId()?>">Voir la suite</a><hr />
+                    <a href="/posts/<?=$post->getId(); ?>">Voir la suite</a><hr />
 
                 </p>
 
             </div>
 
         <?php
-
-        }
         endforeach;
 
         ?>
@@ -151,5 +147,5 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require 'template.php'; ?>
         

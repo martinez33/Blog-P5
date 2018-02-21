@@ -3,39 +3,39 @@
 namespace Core\Routers;
 
 /**
- * Charge les routes, compare les routes avec
+ * Charge les routes, compare les routes avec.
  *
  * l'URL et appel l'action en correspondance avec l'URL
  */
 class Router
 {
     /**
-     * @var array $routes
+     * @var array
      * @var string $params
      */
     private $routes = [];
     private $params;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
         $this->loadRoutes();
     }
-    
+
     /**
-     * Load routes and fill in array routes
+     * Load routes and fill in array routes.
      */
     public function loadRoutes()
     {
-        $tabRoutes = require __DIR__ . './../../config/routes.php';
+        $tabRoutes = require __DIR__.'./../../config/routes.php';
 
         foreach ($tabRoutes as $route) {
             $this->routes[] = new Route($route['path'], $route['action'], $route['params'], $route['method']);
         }
     }
-    
+
     /**
      * @param string $url
      */
@@ -69,13 +69,13 @@ class Router
             if ($tmp) {
                 $max = count($this->routes);
 
-                for ($i=0; $i < $max; $i++) {
+                for ($i = 0; $i < $max; ++$i) {
                     if ($this->routes[$i]->getPath() === $this->match($url)
-                        && $this->routes[$i]->getMethod() != null
+                        && null != $this->routes[$i]->getMethod()
                         && !$this->routes[$i]->getParams()
                     ) {
                         $this->routes[$i]->setControler($this->routes[$i]->getAction());
-                 
+
                         $controler = $this->routes[$i]->getControler();
 
                         return $controler();
@@ -89,7 +89,7 @@ class Router
                         return $controler($this->params);
                     }
                 }
-            } elseif ($_SERVER['DOCUMENT_ROOT'] === '500') {
+            } elseif ('500' === $_SERVER['DOCUMENT_ROOT']) {
                 throw new \Exception('Erreur 500  Un problème est survenue avec le serveur !');
             } else {
                 throw new \Exception('Erreur 404 La page n\'existe pas !');
@@ -97,7 +97,7 @@ class Router
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
 
-            require('../src/View/frontend/error404-500View.php');
+            require '../src/View/frontend/error404-500View.php';
         }
     }
 }

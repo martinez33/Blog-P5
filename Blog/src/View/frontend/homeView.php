@@ -1,6 +1,6 @@
-<?php $title='Mon blog'; ?>
+<?php $title = 'Mon blog'; ?>
    
-<?php ob_start() ?> 
+<?php ob_start(); ?> 
 
 <div class="container">
 
@@ -40,15 +40,13 @@
                 <?php
 
                 foreach ($posts as $post) :
-                    {
-
                 ?>
 
                 <div style="background-color: #d3d3d3; padding: 10px; margin: 5px 5px 20px 5px;">
 
                     <h2 class="blog-post-title post-title" style="text-align: center;">
 
-                        <?= $post->getTitle() ?>
+                        <?= $post->getTitle(); ?>
                         
                     </h2>
 
@@ -63,7 +61,7 @@
 
                         <?= $post->getExtContent(); ?>
 
-                        <a href="/posts/<?=$post->getId()?>">Voir la suite</a> 
+                        <a href="/posts/<?=$post->getId(); ?>">Voir la suite</a> 
 
                     </p>
                       
@@ -72,8 +70,6 @@
                 </div>
 
                 <?php
-
-                }
                 endforeach;
 
                 ?>
@@ -231,5 +227,5 @@
     
 <?php  $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require 'template.php'; ?>
         

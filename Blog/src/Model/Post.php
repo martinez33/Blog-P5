@@ -1,15 +1,14 @@
 <?php
+
 namespace App\Model;
 
-use App\Managers\Validator;
-
 /**
-* Construit le post
-*/
+ * Construit le post.
+ */
 class Post
 {
     /**
-     * @var int $id
+     * @var int
      * @var string $creationDate
      * @var string $modificationDate
      * @var string $title
@@ -32,13 +31,13 @@ class Post
     {
         foreach ($data as $key => $value) {
             $method = 'set'.ucfirst($key);
-      
+
             if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }
     }
-    
+
     /**
      * @return $this->id
      */
@@ -46,7 +45,7 @@ class Post
     {
         return $this->id;
     }
-    
+
     /**
      * @return $this->creationDate
      */
@@ -54,7 +53,7 @@ class Post
     {
         return $this->creationDate;
     }
-    
+
     /**
      * @return $this->modificationDate
      */
@@ -62,7 +61,7 @@ class Post
     {
         return $this->modificationDate;
     }
-    
+
     /**
      * @return $this->title
      */
@@ -78,7 +77,7 @@ class Post
     {
         return $this->chapo;
     }
-    
+
     /**
      * @return $this->content
      */
@@ -86,7 +85,7 @@ class Post
     {
         return $this->content;
     }
-    
+
     /**
      *@return $this->author
      */
@@ -94,15 +93,15 @@ class Post
     {
         return $this->author;
     }
-    
+
     /**
      *@return '<p>' . substr($this->content, 0, 150) . '...</p>'
      */
     public function getExtContent()
     {
-        return '<p>' . substr($this->content, 0, 150) . '...</p>';
+        return '<p>'.substr($this->content, 0, 150).'...</p>';
     }
-    
+
     /**
      * @param int $id
      */
@@ -110,7 +109,7 @@ class Post
     {
         $this->id = $id;
     }
-    
+
     /**
      * @param string $creationDate
      */
@@ -118,7 +117,7 @@ class Post
     {
         $this->creationDate = $creationDate;
     }
-    
+
     /**
      * @param string $modificationDate
      */

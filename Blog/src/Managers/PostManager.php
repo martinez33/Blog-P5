@@ -3,21 +3,19 @@
 namespace App\Managers;
 
 use App\Model\Post;
-use App\Managers\Manager;
-use App\Managers\Validator;
 
 /**
- * herite de Manager
+ * herite de Manager.
  *
  * Contient les fonctionnalités de l'application
  */
 class PostManager extends Manager
 {
     /**
-     * @var array $entries
+     * @var array
      */
     private $entries = [];
-    
+
     /**
      * @return $this->entries
      */
@@ -25,7 +23,7 @@ class PostManager extends Manager
     {
         return $this->entries;
     }
-    
+
     /**
      * @return $this->getEntries()
      */
@@ -36,7 +34,7 @@ class PostManager extends Manager
             DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
             title, chapo, content, author FROM post ORDER BY creationDate DESC LIMIT 0, 4'
         );
-        
+
         $req->execute();
 
         $datas = $req->fetchall();
@@ -47,7 +45,7 @@ class PostManager extends Manager
 
         return $this->getEntries();
     }
-    
+
     /**
      * @return $this->getEntries()
      */
@@ -58,7 +56,7 @@ class PostManager extends Manager
             DATE_FORMAT(modificationDate, \'%d/%m/%Y \') AS modificationDateFr,
             title, chapo, content, author  FROM post ORDER BY creationDate DESC LIMIT 0, 2'
         );
-        
+
         $req->execute();
 
         $datas = $req->fetchall();
@@ -69,9 +67,10 @@ class PostManager extends Manager
 
         return $this->getEntries();
     }
-    
+
     /**
      * @param int $id
+     *
      * @return $this->getEntries()
      */
     public function getPostById($id)
@@ -92,7 +91,7 @@ class PostManager extends Manager
 
         return $this->getEntries();
     }
-    
+
     /**
      * @param Post $post
      */
@@ -137,24 +136,24 @@ class PostManager extends Manager
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
 
-            require('../src/View/frontend/successView.php');
+            require '../src/View/frontend/successView.php';
         }
 
         $req = $this->db->prepare(
             'INSERT INTO post(creationDate, title, chapo, content, author, status)
             VALUES ( NOW(), :title, :chapo, :content, :author, "created")'
         );
-        
+
         $req->execute([
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
         ':content' => htmlspecialchars($post->getContent()),
-        ':author' => htmlspecialchars($post->getAuthor())
+        ':author' => htmlspecialchars($post->getAuthor()),
         ]);
     }
-    
+
     /**
-     * @param int $id
+     * @param int  $id
      * @param Post $post
      */
     public function updatePost($id, Post $post)
@@ -191,7 +190,7 @@ class PostManager extends Manager
             if ($error) {
                 $post->setAuthor($cleanAuthor);
             }
-            
+
             if ($error) {
                 throw new \Exception('SQL Injection detected !');
             } else {
@@ -200,7 +199,7 @@ class PostManager extends Manager
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
 
-            require('../src/View/frontend/successView.php');
+            require '../src/View/frontend/successView.php';
         }
 
         $req = $this->db->prepare(
@@ -213,12 +212,13 @@ class PostManager extends Manager
         ':title' => htmlspecialchars($post->getTitle()),
         ':chapo' => htmlspecialchars($post->getChapo()),
         ':content' => htmlspecialchars($post->getContent()),
-        ':author' => htmlspecialchars($post->getAuthor())
+        ':author' => htmlspecialchars($post->getAuthor()),
         ]);
     }
-    
+
     /**
      * @param array $data
+     *
      * @return $post
      */
     public function buildModel($data)

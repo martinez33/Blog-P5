@@ -5,25 +5,25 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle la modification d'un post
+ * Controle la modification d'un post.
  */
 class ModifyPostControler
 {
     /**
-     * @var array $onePost
+     * @var array
      */
     private $onePost;
 
     /**
-     * Constructor instancie un objet PostManager
+     * Constructor instancie un objet PostManager.
      */
     public function __construct()
     {
         $this->onePost = new PostManager();
     }
-    
+
     /**
-     * Fonction invoqué pour la modification d'un post
+     * Fonction invoqué pour la modification d'un post.
      *
      * @param int $id
      */
@@ -36,10 +36,10 @@ class ModifyPostControler
                 && !empty($_POST['author'])
             ) {
                 $post = $this->onePost->buildModel($_POST);
-                
+
                 $updt = $this->onePost->updatePost($id, $post);
-                
-                if ($post === false) {
+
+                if (false === $post) {
                     throw new Exception('Impossible de modifier le post');
                 } else {
                     header('Location: /');
@@ -50,7 +50,7 @@ class ModifyPostControler
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
 
-            require('../src/View/frontend/errorView.php');
+            require '../src/View/frontend/errorView.php';
         }
     }
 }
