@@ -5,19 +5,19 @@ namespace App\Managers;
 use App\Model\Post;
 
 /**
- * herite de Manager.
+ * Inherit to Manager.
  *
- * Contient les fonctionnalités de l'application
+ * Content all functionality of application
  */
 class PostManager extends Manager
 {
     /**
-     * @var array
+     * @var array $entries
      */
     private $entries = [];
 
     /**
-     * @return $this->entries
+     * @return array $this->entries
      */
     public function getEntries()
     {
@@ -25,7 +25,7 @@ class PostManager extends Manager
     }
 
     /**
-     * @return $this->getEntries()
+     * @return array $this->getEntries()
      */
     public function getPosts()
     {
@@ -47,7 +47,7 @@ class PostManager extends Manager
     }
 
     /**
-     * @return $this->getEntries()
+     * @return array $this->getEntries()
      */
     public function getHomePosts()
     {
@@ -71,7 +71,7 @@ class PostManager extends Manager
     /**
      * @param int $id
      *
-     * @return $this->getEntries()
+     * @return array $this->getEntries()
      */
     public function getPostById($id)
     {
@@ -219,7 +219,7 @@ class PostManager extends Manager
     /**
      * @param array $data
      *
-     * @return $post
+     * @return Post $post
      */
     public function buildModel($data)
     {

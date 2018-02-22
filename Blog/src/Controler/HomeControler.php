@@ -5,19 +5,19 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle l'affichage du home.
+ * Control display home page
  */
 class HomeControler
 {
     /**
-     * @var array
+     * @var array $homPost
      */
     private $homePost;
 
     /**
-     * Constructor.
+     * Constructor
      *
-     * instancie un objet PostMPanager
+     * instantiate an object PostMPanager
      */
     public function __construct()
     {
@@ -25,9 +25,7 @@ class HomeControler
     }
 
     /**
-     * Fonction invoqué pour afficher les posts.
-     *
-     * de la page home
+     * Display posts of home page
      */
     public function __invoke()
     {

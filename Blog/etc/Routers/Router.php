@@ -3,21 +3,24 @@
 namespace Core\Routers;
 
 /**
- * Charge les routes, compare les routes avec.
+ * Load routes, compare routes with
  *
- * l'URL et appel l'action en correspondance avec l'URL
+ * URL and call action which matches with URL
  */
 class Router
 {
     /**
-     * @var array
-     * @var string $params
+     * @var array $routes
      */
     private $routes = [];
+
+    /**
+     * @var string $params
+     */
     private $params;
 
     /**
-     * Constructor.
+     * Constructor
      */
     public function __construct()
     {
@@ -25,7 +28,7 @@ class Router
     }
 
     /**
-     * Load routes and fill in array routes.
+     * Load ways and fill in array ways.
      */
     public function loadRoutes()
     {
@@ -38,6 +41,7 @@ class Router
 
     /**
      * @param string $url
+     * @return array $matches
      */
     public function match($url)
     {
@@ -52,6 +56,10 @@ class Router
         }
     }
 
+    /**
+     * @param string $url
+     * @return string $controler
+     */
     public function handleUrl($url)
     {
         $tmp = false;

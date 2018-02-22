@@ -5,19 +5,24 @@ namespace App\Managers;
 use Core\Validator;
 
 /**
- * Initialise et se connecte a la bdd.
+ * Initialize and connect to bdd.
  */
 abstract class Manager
 {
     /**
-     * @var array objet PDO
-     * @var array $tabDb récupère la config de connexion
+     * @var array object PDO $db
      */
     protected $db;
+
+    /**
+     * @var array $tabDb
+     */
     private $tabDb;
 
     /**
-     * Constructor.
+     * Constructor
+     *
+     * instantiate an object Validator
      */
     public function __construct()
     {
@@ -27,7 +32,7 @@ abstract class Manager
     }
 
     /**
-     * Charge la config de connexion.
+     * Load config connect
      */
     public function loadCredentials()
     {
@@ -35,7 +40,7 @@ abstract class Manager
     }
 
     /**
-     * Connexion a la bdd.
+     * Connect to bdd
      */
     public function getPdo()
     {

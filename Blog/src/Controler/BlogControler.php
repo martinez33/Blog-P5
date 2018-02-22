@@ -5,19 +5,19 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle l'affichage des posts.
+ * Control posts display
  */
 class BlogControler
 {
     /**
-     * @var array
+     * @var array $blogPosts
      */
     private $blogPosts;
 
     /**
-     * Constructor.
+     * Constructor
      *
-     * instancie un objet PostMPanager
+     * instantiate an object PostManager
      */
     public function __construct()
     {
@@ -25,7 +25,7 @@ class BlogControler
     }
 
     /**
-     * Fonction invoqué pour afficher les posts.
+     * Display posts
      */
     public function __invoke()
     {

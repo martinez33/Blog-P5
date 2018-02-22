@@ -5,19 +5,19 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle l'ajout de post.
+ * Control post added
  */
 class AddPostControler
 {
     /**
-     * @var array
+     * @var array $blogPosts
      */
     private $blogPosts;
 
     /**
-     * Constructor.
+     * Constructor
      *
-     * instancie un objet PostMPanager
+     * instantiate an object PostManager
      */
     public function __construct()
     {
@@ -25,7 +25,7 @@ class AddPostControler
     }
 
     /**
-     * Fonction invoqué pour construire et créer le post.
+     * Build and create the post
      */
     public function __invoke()
     {

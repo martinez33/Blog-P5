@@ -5,17 +5,19 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle la modification d'un post.
+ * Control modification post
  */
 class ModifyPostControler
 {
     /**
-     * @var array
+     * @var array $onePost
      */
     private $onePost;
 
     /**
-     * Constructor instancie un objet PostManager.
+     * Constructor
+     *
+     * instantiate an object PostManager.
      */
     public function __construct()
     {
@@ -23,7 +25,7 @@ class ModifyPostControler
     }
 
     /**
-     * Fonction invoqué pour la modification d'un post.
+     * Modification post
      *
      * @param int $id
      */

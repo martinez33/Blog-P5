@@ -8,23 +8,43 @@ namespace App\Model;
 class Post
 {
     /**
-     * @var int
-     * @var string $creationDate
-     * @var string $modificationDate
-     * @var string $title
-     * @var string $chapo
-     * @var string $content
-     * @var string $author
+     * @var int $id
      */
     private $id;
+
+    /**
+     * @var string $creationDate
+     */
     private $creationDate;
+
+    /**
+     * @var string $modificationDate
+     */
     private $modificationDate;
+
+    /**
+     * @var string $title
+     */
     private $title;
+
+    /**
+     * @var string $chapo
+     */
     private $chapo;
+
+    /**
+     * @var string $content
+     */
     private $content;
+
+    /**
+     * @var string $author
+     */
     private $author;
 
     /**
+     * Hydratation of datas
+     *
      * @param array $data
      */
     public function hydrate(array $data)
@@ -39,7 +59,7 @@ class Post
     }
 
     /**
-     * @return $this->id
+     * @return int $this->id
      */
     public function getId()
     {
@@ -47,7 +67,7 @@ class Post
     }
 
     /**
-     * @return $this->creationDate
+     * @return string $this->creationDate
      */
     public function getCreationDate()
     {
@@ -55,7 +75,7 @@ class Post
     }
 
     /**
-     * @return $this->modificationDate
+     * @return string $this->modificationDate
      */
     public function getModificationDate()
     {
@@ -63,7 +83,7 @@ class Post
     }
 
     /**
-     * @return $this->title
+     * @return string $this->title
      */
     public function getTitle()
     {
@@ -71,7 +91,7 @@ class Post
     }
 
     /**
-     * @return $this->chapo
+     * @return string $this->chapo
      */
     public function getChapo()
     {
@@ -79,7 +99,7 @@ class Post
     }
 
     /**
-     * @return $this->content
+     * @return string $this->content
      */
     public function getContent()
     {
@@ -87,7 +107,7 @@ class Post
     }
 
     /**
-     *@return $this->author
+     *@return string $this->author
      */
     public function getAuthor()
     {
@@ -95,7 +115,7 @@ class Post
     }
 
     /**
-     *@return '<p>' . substr($this->content, 0, 150) . '...</p>'
+     *@return string $this->content
      */
     public function getExtContent()
     {

@@ -3,22 +3,19 @@
 namespace Core;
 
 /**
- * Repère et nettoie les données invalides.
+ * Track down and clean invalid datas
  */
 class Validator
 {
     /**
-     * @var bool
+     * @var bool $error
      */
     private $error;
 
     /**
-     * Detecte et supprime les injections SQL.
-     *
-     * et les scripts JS
+     * Detect and delete SQL injection and JS script
      *
      * @param string $entries
-     *
      * @return string $clean
      */
     public function checkSQL($entries)
@@ -55,7 +52,7 @@ class Validator
     }
 
     /**
-     * @return $this->error
+     * @return bool $this->error
      */
     public function getError()
     {

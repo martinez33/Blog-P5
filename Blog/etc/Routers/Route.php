@@ -3,30 +3,42 @@
 namespace Core\Routers;
 
 /**
- * Construit, initialise et renvoie les routes.
+ * Build, initialize and send back routes.
  */
 class Route
 {
     /**
-     * @var string
-     * @var string $action
-     * @var string $method
-     * @var array  $params
-     * @var string $controler
+     * @var string $path
      */
     private $path;
-    private $action;
-    private $method;
-    private $params = [];
-    private $controler;
 
     /**
-     * Constructor.
+     * @var string $action
+     */
+    private $action;
+
+    /**
+     * @var string $method
+     */
+    private $method;
+
+    /**
+     * @var array  $params
+     */
+    private $params = [];
+
+    /**
+     * @var string $controler
+     */
+    private $controler;
+    
+    /**
+     * Constructor
      *
-     * @param string $path    valeur du chemin
-     * @param string $action  action de la route
-     * @param array  $paprams tableau de paramètre
-     * @param string $method  methode de recupération des données
+     * @param string $path    path value
+     * @param string $action  action route
+     * @param array  $paprams parameters table
+     * @param string $method  data recovery method
      */
     public function __construct(
         $path,
@@ -41,7 +53,7 @@ class Route
     }
 
     /**
-     * @return $this->path
+     * @return string $this->path
      */
     public function getPath()
     {
@@ -49,7 +61,7 @@ class Route
     }
 
     /**
-     * @return $this->action
+     * @return string $this->action
      */
     public function getAction()
     {
@@ -57,23 +69,7 @@ class Route
     }
 
     /**
-     * @return $this->params[':id']
-     */
-    public function getParams()
-    {
-        return $this->params[':id'];
-    }
-
-    /**
-     * @return $this->controler
-     */
-    public function getControler()
-    {
-        return $this->controler;
-    }
-
-    /**
-     * @return $this->method
+     * @return string $this->method
      */
     public function getMethod()
     {
@@ -81,7 +77,23 @@ class Route
     }
 
     /**
-     * @param string $path valeur du chemin
+     * @return array $this->params[':id']
+     */
+    public function getParams()
+    {
+        return $this->params[':id'];
+    }
+
+    /**
+     * @return string $this->controler
+     */
+    public function getControler()
+    {
+        return $this->controler;
+    }
+
+    /**
+     * @param string $path path value
      */
     public function setPath($path)
     {
@@ -89,7 +101,7 @@ class Route
     }
 
     /**
-     * @param string $action action de la route
+     * @param string $action action route
      */
     public function setAction($action)
     {
@@ -97,7 +109,7 @@ class Route
     }
 
     /**
-     * @param array $params tableau de paramètre
+     * @param array $params parameters table
      */
     public function setParams($params)
     {
@@ -105,7 +117,7 @@ class Route
     }
 
     /**
-     * @param string $controler action attribué
+     * @param string $controler assigned action
      */
     public function setControler($controler)
     {
@@ -117,7 +129,7 @@ class Route
     }
 
     /**
-     * @param string $method methode de recupération des données
+     * @param string $method data recovery method
      */
     public function setMethod($method)
     {

@@ -5,19 +5,17 @@ namespace App\Controler;
 use PHPMailer\PHPMailer\PHPMailer;
 
 /**
- * Controle l'envoie de mail.
+ * Control send mail
  */
 class MailControler
 {
     /**
-     *@var array recupère les identifaints de connexion
+     *@var array $idTab
      */
     private $idTab;
 
     /**
-     * Fonction invoqué pour l'envoie de mail.
-     *
-     * via le server SMTP gmail
+     * Send mail by SMTP gmail
      */
     public function __invoke()
     {

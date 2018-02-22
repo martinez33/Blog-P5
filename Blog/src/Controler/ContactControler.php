@@ -3,12 +3,12 @@
 namespace App\Controler;
 
 /**
- * Controle l'affichage de la page de contact.
+ * Control display contact page
  */
 class ContactControler
 {
     /**
-     * Fonction invoqué pour afficher la page de contact.
+     * Display contact page
      */
     public function __invoke()
     {

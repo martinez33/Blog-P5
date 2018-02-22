@@ -5,17 +5,19 @@ namespace App\Controler;
 use App\Managers\PostManager;
 
 /**
- * Controle l'affichage d'un post.
+ * Control display post.
  */
 class PostControler
 {
     /**
-     * @var array
+     * @var array $onePost
      */
     private $onePost;
 
     /**
-     * Constructor instancie un objet PostManager.
+     * Constructor
+     *
+     * instantiate an object PostManager.
      */
     public function __construct()
     {
@@ -23,7 +25,7 @@ class PostControler
     }
 
     /**
-     * Fonction invoqué pour afficher un post.
+     * Display post
      *
      * @param int $id
      */
