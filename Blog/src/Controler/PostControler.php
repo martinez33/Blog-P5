@@ -28,6 +28,7 @@ class PostControler
      * Display post
      *
      * @param int $id
+     * @throws \Exception
      */
     public function __invoke($id)
     {

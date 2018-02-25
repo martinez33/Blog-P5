@@ -17,7 +17,7 @@ class PostManager extends Manager
     private $entries = [];
 
     /**
-     * @return array $this->entries
+     * @return array
      */
     public function getEntries()
     {
@@ -25,7 +25,7 @@ class PostManager extends Manager
     }
 
     /**
-     * @return array $this->getEntries()
+     * @return array
      */
     public function getPosts()
     {
@@ -47,7 +47,7 @@ class PostManager extends Manager
     }
 
     /**
-     * @return array $this->getEntries()
+     * @return array
      */
     public function getHomePosts()
     {
@@ -71,7 +71,7 @@ class PostManager extends Manager
     /**
      * @param int $id
      *
-     * @return array $this->getEntries()
+     * @return array
      */
     public function getPostById($id)
     {
@@ -94,6 +94,8 @@ class PostManager extends Manager
 
     /**
      * @param Post $post
+     * @throws \Exception
+     * @throws \Exception
      */
     public function createPost(Post $post)
     {
@@ -155,6 +157,8 @@ class PostManager extends Manager
     /**
      * @param int  $id
      * @param Post $post
+     * @throws \Exception
+     * @throws \Exception
      */
     public function updatePost($id, Post $post)
     {
@@ -219,7 +223,7 @@ class PostManager extends Manager
     /**
      * @param array $data
      *
-     * @return Post $post
+     * @return array
      */
     public function buildModel($data)
     {

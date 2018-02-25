@@ -41,7 +41,7 @@ class Router
 
     /**
      * @param string $url
-     * @return array $matches
+     * @return array
      */
     public function match($url)
     {
@@ -58,7 +58,9 @@ class Router
 
     /**
      * @param string $url
-     * @return string $controler
+     * @return string
+     * @throws \Exception
+     * @throws \Exception
      */
     public function handleUrl($url)
     {

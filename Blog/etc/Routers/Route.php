@@ -53,7 +53,7 @@ class Route
     }
 
     /**
-     * @return string $this->path
+     * @return string
      */
     public function getPath()
     {
@@ -61,7 +61,7 @@ class Route
     }
 
     /**
-     * @return string $this->action
+     * @return string
      */
     public function getAction()
     {
@@ -69,7 +69,7 @@ class Route
     }
 
     /**
-     * @return string $this->method
+     * @return string
      */
     public function getMethod()
     {
@@ -77,7 +77,7 @@ class Route
     }
 
     /**
-     * @return array $this->params[':id']
+     * @return array
      */
     public function getParams()
     {
@@ -85,7 +85,7 @@ class Route
     }
 
     /**
-     * @return string $this->controler
+     * @return string
      */
     public function getControler()
     {

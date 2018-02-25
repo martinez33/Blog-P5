@@ -26,6 +26,8 @@ class BlogControler
 
     /**
      * Display posts
+     *
+     * @throws \Exception
      */
     public function __invoke()
     {

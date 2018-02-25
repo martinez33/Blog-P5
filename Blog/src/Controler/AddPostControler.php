@@ -26,6 +26,9 @@ class AddPostControler
 
     /**
      * Build and create the post
+     *
+     * @throws \Exception
+     * @throws \Exception
      */
     public function __invoke()
     {

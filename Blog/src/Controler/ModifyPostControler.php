@@ -28,6 +28,8 @@ class ModifyPostControler
      * Modification post
      *
      * @param int $id
+     * @throws \Exception
+     * @throws \Exception
      */
     public function __invoke($id)
     {

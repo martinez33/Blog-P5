@@ -26,6 +26,8 @@ class HomeControler
 
     /**
      * Display posts of home page
+     *
+     * @throws \Exception
      */
     public function __invoke()
     {

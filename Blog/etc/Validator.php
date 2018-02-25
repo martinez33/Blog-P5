@@ -16,7 +16,7 @@ class Validator
      * Detect and delete SQL injection and JS script
      *
      * @param string $entries
-     * @return string $clean
+     * @return string
      */
     public function checkSQL($entries)
     {
@@ -52,7 +52,7 @@ class Validator
     }
 
     /**
-     * @return bool $this->error
+     * @return bool
      */
     public function getError()
     {

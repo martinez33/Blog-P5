@@ -59,7 +59,7 @@ class Post
     }
 
     /**
-     * @return int $this->id
+     * @return int
      */
     public function getId()
     {
@@ -67,7 +67,7 @@ class Post
     }
 
     /**
-     * @return string $this->creationDate
+     * @return string
      */
     public function getCreationDate()
     {
@@ -75,7 +75,7 @@ class Post
     }
 
     /**
-     * @return string $this->modificationDate
+     * @return string
      */
     public function getModificationDate()
     {
@@ -83,7 +83,7 @@ class Post
     }
 
     /**
-     * @return string $this->title
+     * @return string
      */
     public function getTitle()
     {
@@ -91,7 +91,7 @@ class Post
     }
 
     /**
-     * @return string $this->chapo
+     * @return string
      */
     public function getChapo()
     {
@@ -99,7 +99,7 @@ class Post
     }
 
     /**
-     * @return string $this->content
+     * @return string
      */
     public function getContent()
     {
@@ -107,7 +107,7 @@ class Post
     }
 
     /**
-     *@return string $this->author
+     *@return string
      */
     public function getAuthor()
     {
@@ -115,7 +115,7 @@ class Post
     }
 
     /**
-     *@return string $this->content
+     *@return string
      */
     public function getExtContent()
     {

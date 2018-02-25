@@ -16,6 +16,10 @@ class MailControler
 
     /**
      * Send mail by SMTP gmail
+     *
+     * @throws \Exception
+     * @throws \Exception
+     * @throws \Exception
      */
     public function __invoke()
     {
