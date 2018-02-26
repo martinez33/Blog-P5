@@ -54,7 +54,7 @@ abstract class Manager
                 $this->tabDb['username'],
                 $this->tabDb['psswd']
             );
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             die('Erreur : '.$e->getMessage());
         }
     }
