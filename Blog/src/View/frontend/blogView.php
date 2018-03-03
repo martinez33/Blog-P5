@@ -108,9 +108,7 @@
 
                         <label>Contenu du post :</label>
                         <textarea name="content" rows="5" 
-                         class="form-control" 
-                         placeholder="Contenu du post" id="content" >
-                        </textarea>
+                         class="form-control"></textarea>
                         <p class="help-block text-danger"></p>
 
                     </div>

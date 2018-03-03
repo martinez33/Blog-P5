@@ -79,7 +79,8 @@
                     <div class="form-group "> 
 
                         <label for="title">Titre :</label>
-                        <input type="text" id="title" name="title" class="form-control" placeholder="Titre"/>
+                        <input type="text" id="title" name="title" 
+                        class="form-control" placeholder="Titre"/>
                         <p class="help-block text-danger"></p>
 
                     </div>
@@ -91,7 +92,8 @@
                     <div class="form-group ">
 
                         <label>Chapo :</label>
-                        <input type="text" name="chapo" class="form-control" placeholder="Sous-titre" id="chapo" >
+                        <input type="text" name="chapo" class="form-control"
+                        placeholder="Sous-titre" id="chapo" >
                         <p class="help-block text-danger"></p>
                     </div>
 
@@ -102,8 +104,7 @@
                     <div class="form-group ">
 
                         <label>Contenu du post :</label>
-                        <textarea name="content" rows="5" class="form-control" 
-                        placeholder="Contenu du post" id="content" >
+                        <textarea name="content" rows="5" class="form-control">   
                         </textarea>
                         <p class="help-block text-danger"></p>
 
@@ -116,7 +117,8 @@
                     <div class="form-group ">
 
                         <label>Auteur :</label>
-                        <input type="text" name="author" class="form-control" placeholder="Auteur" id="author" >
+                        <input type="text" name="author" 
+                        class="form-control" placeholder="Auteur" id="author" >
                         <p class="help-block text-danger"></p>
 
                     </div>
@@ -127,7 +129,9 @@
 
                 <div class="form-group">
 
-                    <button type="submit" class="btn" id="sendMessageButton">Modifier</button>
+                    <button type="submit" class="btn" id="sendMessageButton">
+                    Modifier
+                    </button>
 
                 </div>
 
