@@ -104,8 +104,8 @@
                     <div class="form-group ">
 
                         <label>Contenu du post :</label>
-                        <textarea name="content" rows="5" class="form-control">   
-                        </textarea>
+                        <textarea name="content" rows="5" 
+                         class="form-control"></textarea>
                         <p class="help-block text-danger"></p>
 
                     </div>
